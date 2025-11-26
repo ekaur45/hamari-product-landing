@@ -1029,14 +1029,17 @@ $('.h9_blog-item').on('mouseenter', function () {
 });
 
 // ticker slider 
-$("#program-text-ticker").bxSlider({
-	minSlides: 1,
-	maxSlides: 1,
-	slideMargin: 0,
-	ticker: true,
-	speed: 25000,
-});
+if($("#program-text-ticker").length>0){
 
+	$("#program-text-ticker")?.bxSlider({
+		minSlides: 1,
+		maxSlides: 1,
+		slideMargin: 0,
+		ticker: true,
+		speed: 25000,
+	});
+}
+if($("#apply-text-ticke").length>0)
 
 $("#apply-text-ticker").bxSlider({
 	minSlides: 1,
@@ -1047,6 +1050,7 @@ $("#apply-text-ticker").bxSlider({
 });
 
 
+if($("#campus-text-ticke").length>0)
 $("#campus-text-ticker").bxSlider({
 	mode: 'horizontal',
 	minSlides: 1,
@@ -1056,7 +1060,7 @@ $("#campus-text-ticker").bxSlider({
 	speed: 20000,
 });
 
-
+if($("#campus-text-ticke").length>0)
 $("#campus-text-ticker-2").bxSlider({
 	mode: 'horizontal',
 	minSlides: 1,
@@ -1067,7 +1071,7 @@ $("#campus-text-ticker-2").bxSlider({
 	autoDirection: 'prev',
 });
 
-
+if($("#testimonial-text-ticke").length>0)
 $("#testimonial-text-ticker").bxSlider({
 	minSlides: 1,
 	maxSlides: 1,
@@ -1075,7 +1079,7 @@ $("#testimonial-text-ticker").bxSlider({
 	ticker: true,
 	speed: 25000,
 });
-
+if($("#about-text-ticke").length>0)
 $("#about-text-ticker").bxSlider({
 	minSlides: 1,
 	maxSlides: 1,
@@ -1083,7 +1087,7 @@ $("#about-text-ticker").bxSlider({
 	ticker: true,
 	speed: 25000,
 });
-
+if($("#research-text-ticke").length>0)
 $("#research-text-ticker").bxSlider({
 	minSlides: 1,
 	maxSlides: 1,

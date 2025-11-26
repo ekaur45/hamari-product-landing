@@ -1,90 +1,5 @@
-<!Doctype html>
-<html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Taleemiyat</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}>
-        <!-- Place favicon.ico in the root directory -->
-
-		<!-- CSS here -->
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/fontawesome-all.min.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/odometer.min.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}>
-        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}>
-    </head>
-     
-    <body>
-       <!-- sidebar-information-area-start -->
-        <div class="sidebar-info side-info">
-            <div class="sidebar-logo-wrapper mb-25">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-8">
-                        <div class="sidebar-logo">
-                            <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo-white.png') }} alt="logo-img"></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-4">
-                        <div class="sidebar-close-wrapper text-end">
-                            <button class="sidebar-close side-info-close"><i class="fal fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="sidebar-menu-wrapper fix">
-                <div class="mobile-menu"></div>
-            </div>
-        </div>
-        <div class="offcanvas-overlay"></div>
-        <!-- sidebar-information-area-end -->
-
-        <!-- header area start -->
-        <header> 
-            <div class="h3_header-area header-sticky">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-sm-7 col-6">
-                            <div class="h3_header-logo">
-                                <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }} alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 d-none d-xl-block">
-                            <div class="h3_header-middle">
-                                <nav class="h3_main-menu mobile-menu" id="mobile-menu">
-                                    <ul>
-                                        <li><a href="{{ url('/about') }}">About Us</a></li>
-                                        <li><a href="{{ url('/blog') }}">Blogs</a></li>
-                                        <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-5 col-6">
-                            <div class="h3_header-right">
-                                <div class="h3_header-btn d-none d-sm-block">
-                                    <a href="#" class="header-btn theme-btn theme-btn-medium theme-btn-3">Sign Up Now<i class="fa-light fa-arrow-up-right"></i></a>
-                                </div>
-                                <div class="header-menu-bar d-xl-none ml-10">
-                                    <span class="header-menu-bar-icon side-toggle">
-                                        <i class="fa-light fa-bars"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- header area end -->
-
-        <main>
+@extends('layout.index')
+@section('content')
             <!-- banner area start -->
             <section class="h3_banner-area">
                 <div class="h3_single-banner">
@@ -120,19 +35,19 @@
                                             <button type="submit" class="theme-btn theme-btn-medium theme-btn-3 h3_banner-form-btn">Search</button>
                                         </div>
                                     </form>
-                                    <img class="h3_banner-content-shape-1" src="{{ asset('assets/img/banner/3/shape-1.png') }} alt="">
+                                    <img class="h3_banner-content-shape-1" src="{{ asset('assets/img/banner/3/shape-1.png') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                                 <div class="h3_banner-right">
                                     <div class="h3_banner-img">
-                                        <img src="{{ asset('assets/img/hero-01.webp') }} alt="">
+                                        <img src="{{ asset('assets/img/hero-01.webp') }}" alt="">
                                     </div>
                                     <div class="h3_banner-right-shape">
                                         <div class="inner-shpae-1">
-                                            <img class="h3_banner-shape-2" src="{{ asset('assets/img/banner/3/shape-2.png') }} alt="">
+                                            <img class="h3_banner-shape-2" src="{{ asset('assets/img/banner/3/shape-2.png') }}" alt="">
                                         </div>
-                                        <img class="h3_banner-shape-1" src="{{ asset('assets/img/banner/3/shape-3.png') }} alt="">
+                                        <img class="h3_banner-shape-1" src="{{ asset('assets/img/banner/3/shape-3.png') }}" alt="">
                                     </div>
                                     <div class="h3_banner-meta">
                                         <div class="h3_banner-meta-info">
@@ -221,24 +136,24 @@
 
             <!-- about area start -->
             <section class="h3_about-area pt-140 pb-90">
-                <img src="{{ asset('assets/img/about/3/shape-5.png') }} alt="" class="h3_about-top-shape">
+                <img src="{{ asset('assets/img/about/3/shape-5.png') }}" alt="" class="h3_about-top-shape">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6">
                             <div class="h3_about-img mb-50">
                                 <div class="h3_about-inner-img w_img mr-50">
-                                    <img src="{{ asset('assets/img/landing-02.webp') }} alt="">
+                                    <img src="{{ asset('assets/img/landing-02.webp') }}" alt="">
                                 </div>
                                 <div class="h3_about-img-shape d-none d-sm-block">
-                                    <img class="h3_about-img-shape-1" src="{{ asset('assets/img/about/3/shape-1.png') }} alt="">
-                                    <img class="h3_about-img-shape-2" src="{{ asset('assets/img/about/3/shape-2.png') }} alt="">
-                                    <img class="h3_about-img-shape-3" src="{{ asset('assets/img/about/3/shape-3.png') }} alt="">
+                                    <img class="h3_about-img-shape-1" src="{{ asset('assets/img/about/3/shape-1.png') }}" alt="">
+                                    <img class="h3_about-img-shape-2" src="{{ asset('assets/img/about/3/shape-2.png') }}" alt="">
+                                    <img class="h3_about-img-shape-3" src="{{ asset('assets/img/about/3/shape-3.png') }}" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="h3_about-wrap mr-65 mb-50">
-                                <img src="{{ asset('assets/img/about/3/shape-4.png') }} alt="" class="h3_about-wrap-shape">
+                                <img src="{{ asset('assets/img/about/3/shape-4.png') }}" alt="" class="h3_about-wrap-shape">
                                 <div class="section-area-3 mb-35 small-section-area-3">
                                     <span class="section-subtitle">Know About Us</span>
                                     <h2 class="section-title mb-25">Humari Product — The Future of Tutoring, Built Around You</h2>
@@ -289,7 +204,7 @@
                     <div class="row">
                         <div class="col-xxl-7 col-xl-6 col-lg-6">
                             <div class="h6_research-img w_img mb-50">
-                                <img src="{{ asset('assets/img/landing-03.jpg') }} alt="">
+                                <img src="{{ asset('assets/img/landing-03.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xxl-5 col-xl-6 col-lg-6">
@@ -360,7 +275,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Leadership</a>
                                                     </div>
@@ -386,7 +301,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Widget</a></span>
@@ -409,7 +324,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Marketing</a>
                                                     </div>
@@ -435,7 +350,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Russell</a></span>
@@ -458,7 +373,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Education</a>
                                                     </div>
@@ -484,7 +399,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Ameter</a></span>
@@ -511,7 +426,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Leadership</a>
                                                     </div>
@@ -537,7 +452,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Widget</a></span>
@@ -560,7 +475,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Marketing</a>
                                                     </div>
@@ -586,7 +501,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Russell</a></span>
@@ -609,7 +524,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Education</a>
                                                     </div>
@@ -635,7 +550,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Ameter</a></span>
@@ -662,7 +577,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Leadership</a>
                                                     </div>
@@ -688,7 +603,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Widget</a></span>
@@ -711,7 +626,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Marketing</a>
                                                     </div>
@@ -737,7 +652,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Russell</a></span>
@@ -760,7 +675,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Education</a>
                                                     </div>
@@ -786,7 +701,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Ameter</a></span>
@@ -813,7 +728,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Leadership</a>
                                                     </div>
@@ -839,7 +754,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Widget</a></span>
@@ -862,7 +777,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Marketing</a>
                                                     </div>
@@ -888,7 +803,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Russell</a></span>
@@ -911,7 +826,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Education</a>
                                                     </div>
@@ -937,7 +852,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Ameter</a></span>
@@ -964,7 +879,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/1.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Leadership</a>
                                                     </div>
@@ -990,7 +905,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-1.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Widget</a></span>
@@ -1013,7 +928,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/2.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Marketing</a>
                                                     </div>
@@ -1039,7 +954,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-2.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Russell</a></span>
@@ -1062,7 +977,7 @@
                                         <div class="h3_course-item mb-30">
                                             <div class="h3_course-item-top">
                                                 <div class="h3_course-item-img">
-                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }} alt=""></a>
+                                                    <a href="{{ url('/course-details') }}"><img src="{{ asset('assets/img/course/3/3.jpg') }}" alt=""></a>
                                                     <div class="h3_course-item-tag">
                                                         <a href="#">Education</a>
                                                     </div>
@@ -1088,7 +1003,7 @@
                                             <div class="h3_course-item-bottom">
                                                 <div class="h3_course-item-author">
                                                     <div class="h3_course-item-author-img">
-                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }} alt="">
+                                                        <img src="{{ asset('assets/img/course/3/author-3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="h3_course-item-author-info">
                                                         <span>By <a href="#">Ameter</a></span>
@@ -1151,7 +1066,7 @@
                             <div class="swiper-slide">
                                 <div class="h8_teacher-item">
                                     <div class="h8_teacher-img w_img">
-                                        <img src="{{ asset('assets/img/teacher/8/1.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/teacher/8/1.jpg') }}" alt="">
                                         <div class="h8_teacher-social">
                                             <span class="share"><i class="fa-light fa-share-nodes"></i></span>
                                             <ul>
@@ -1172,7 +1087,7 @@
                             <div class="swiper-slide">
                                 <div class="h8_teacher-item">
                                     <div class="h8_teacher-img w_img">
-                                        <img src="{{ asset('assets/img/teacher/8/2.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/teacher/8/2.jpg') }}" alt="">
                                         <div class="h8_teacher-social">
                                             <span class="share"><i class="fa-light fa-share-nodes"></i></span>
                                             <ul>
@@ -1193,7 +1108,7 @@
                             <div class="swiper-slide">
                                 <div class="h8_teacher-item">
                                     <div class="h8_teacher-img w_img">
-                                        <img src="{{ asset('assets/img/teacher/8/3.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/teacher/8/3.jpg') }}" alt="">
                                         <div class="h8_teacher-social">
                                             <span class="share"><i class="fa-light fa-share-nodes"></i></span>
                                             <ul>
@@ -1214,7 +1129,7 @@
                             <div class="swiper-slide">
                                 <div class="h8_teacher-item">
                                     <div class="h8_teacher-img w_img">
-                                        <img src="{{ asset('assets/img/teacher/8/4.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/teacher/8/4.jpg') }}" alt="">
                                         <div class="h8_teacher-social">
                                             <span class="share"><i class="fa-light fa-share-nodes"></i></span>
                                             <ul>
@@ -1267,10 +1182,10 @@
                                 <div class="h3_testimonial-item">
                                     <div class="h3_testimonial-item-content">
                                         <p>Duis euismod ipsum vel ultrices gravida. Vestibulum ac nulla condimentum, euismod massa ut, maximus orci. Aliquam nulla neque, ornare quis ligula et, scelerisque laoreet ex. Aliquam vulputate velit nisl, a eleifend libero mattis id. Vivamus nec ligula ullamcorper, porta sapien id, ullamcorper ligula. Mauris sed condimentum nisl.</p>
-                                        <img src="{{ asset('assets/img/testimonial/3/quote.png') }} alt="" class="quote">
+                                        <img src="{{ asset('assets/img/testimonial/3/quote.png') }}" alt="" class="quote">
                                     </div>
                                     <div class="h3_testimonial-item-author">
-                                        <img src="{{ asset('assets/img/testimonial/3/1.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/testimonial/3/1.jpg') }}" alt="">
                                         <div class="h3_testimonial-item-author-info">
                                             <h5>Sue Shei</h5>
                                             <span>Special Education</span>
@@ -1282,10 +1197,10 @@
                                 <div class="h3_testimonial-item">
                                     <div class="h3_testimonial-item-content">
                                         <p>Duis euismod ipsum vel ultrices gravida. Vestibulum ac nulla condimentum, euismod massa ut, maximus orci. Aliquam nulla neque, ornare quis ligula et, scelerisque laoreet ex. Aliquam vulputate velit nisl, a eleifend libero mattis id. Vivamus nec ligula ullamcorper, porta sapien id, ullamcorper ligula. Mauris sed condimentum nisl.</p>
-                                        <img src="{{ asset('assets/img/testimonial/3/quote.png') }} alt="" class="quote">
+                                        <img src="{{ asset('assets/img/testimonial/3/quote.png') }}" alt="" class="quote">
                                     </div>
                                     <div class="h3_testimonial-item-author">
-                                        <img src="{{ asset('assets/img/testimonial/3/2.jpg') }} alt="">
+                                        <img src="{{ asset('assets/img/testimonial/3/2.jpg') }}" alt="">
                                         <div class="h3_testimonial-item-author-info">
                                             <h5>Hanson Deck</h5>
                                             <span>Special Education</span>
@@ -1296,10 +1211,10 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{ asset('assets/img/testimonial/3/shape-1.png') }} alt="" class="h3_testimonial-shape-1">
-                <img src="{{ asset('assets/img/testimonial/3/shape-2.png') }} alt="" class="h3_testimonial-shape-2">
-                <img src="{{ asset('assets/img/testimonial/3/shape-3.png') }} alt="" class="h3_testimonial-shape-3">
-                <img src="{{ asset('assets/img/testimonial/3/shape-4.png') }} alt="" class="h3_testimonial-shape-4">
+                <img src="{{ asset('assets/img/testimonial/3/shape-1.png') }}" alt="" class="h3_testimonial-shape-1">
+                <img src="{{ asset('assets/img/testimonial/3/shape-2.png') }}" alt="" class="h3_testimonial-shape-2">
+                <img src="{{ asset('assets/img/testimonial/3/shape-3.png') }}" alt="" class="h3_testimonial-shape-3">
+                <img src="{{ asset('assets/img/testimonial/3/shape-4.png') }}" alt="" class="h3_testimonial-shape-4">
             </section>
             <!-- testimonial area end -->
 
@@ -1323,7 +1238,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="h3_blog-item mb-30">
                                 <div class="h3_blog-img">
-                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/1.jpg') }} alt=""></a>
+                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/1.jpg') }}" alt=""></a>
                                     <a href="#" class="h3_blog-img-meta">Education</a>
                                 </div>
                                 <div class="h3_blog-content">
@@ -1340,7 +1255,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="h3_blog-item mb-30">
                                 <div class="h3_blog-img">
-                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/2.jpg') }} alt=""></a>
+                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/2.jpg') }}" alt=""></a>
                                     <a href="#" class="h3_blog-img-meta">Education</a>
                                 </div>
                                 <div class="h3_blog-content">
@@ -1357,7 +1272,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="h3_blog-item mb-30">
                                 <div class="h3_blog-img">
-                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/3.jpg') }} alt=""></a>
+                                    <a href="{{ url('/blog-details') }}"><img src="{{ asset('assets/img/blog/3/3.jpg') }}" alt=""></a>
                                     <a href="#" class="h3_blog-img-meta">UX Design</a>
                                 </div>
                                 <div class="h3_blog-content">
@@ -1390,7 +1305,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="h9_choose-item mb-30">
                                 <div class="h9_choose-item-icon">
-                                    <img src="{{ asset('assets/img/choose/1.png') }} alt="">
+                                    <img src="{{ asset('assets/img/choose/1.png') }}" alt="">
                                 </div>
                                 <h4 class="h9_choose-item-title">Personalized Learning</h4>
                                 <p>Ut cursus sem metus, sagittis ullamcorper neque porttitor se Proin commodo lacinia dolor bibendum sem vulputate vitae. Donec ultrices  ante ac malesuada.</p>
@@ -1399,7 +1314,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="h9_choose-item mb-30">
                                 <div class="h9_choose-item-icon">
-                                    <img src="{{ asset('assets/img/choose/2.png') }} alt="">
+                                    <img src="{{ asset('assets/img/choose/2.png') }}" alt="">
                                 </div>
                                 <h4 class="h9_choose-item-title">Trusted Content</h4>
                                 <p>Ut cursus sem metus, sagittis ullamcorper neque porttitor se Proin commodo lacinia dolor bibendum sem vulputate vitae. Donec ultrices  ante ac malesuada.</p>
@@ -1408,7 +1323,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="h9_choose-item mb-30">
                                 <div class="h9_choose-item-icon">
-                                    <img src="{{ asset('assets/img/choose/3.png') }} alt="">
+                                    <img src="{{ asset('assets/img/choose/3.png') }}" alt="">
                                 </div>
                                 <h4 class="h9_choose-item-title">Tool Empower Teachers</h4>
                                 <p>Ut cursus sem metus, sagittis ullamcorper neque porttitor se Proin commodo lacinia dolor bibendum sem vulputate vitae. Donec ultrices  ante ac malesuada.</p>
@@ -1417,7 +1332,7 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="h9_choose-item-big mb-30">
                                 <div class="h9_choose-item-big-img">
-                                    <img src="{{ asset('assets/img/choose/bg-1.jpg') }} alt="">
+                                    <img src="{{ asset('assets/img/choose/bg-1.jpg') }}" alt="">
                                 </div>
                                 <div class="h9_choose-item-big-content">
                                     <span>Become an Instructor</span>
@@ -1430,7 +1345,7 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="h9_choose-item-big mb-30">
                                 <div class="h9_choose-item-big-img">
-                                    <img src="{{ asset('assets/img/choose/bg-2.jpg') }} alt="">
+                                    <img src="{{ asset('assets/img/choose/bg-2.jpg') }}" alt="">
                                 </div>
                                 <div class="h9_choose-item-big-content">
                                     <span>Learners and Students</span>
@@ -1467,90 +1382,4 @@
                 </div>
             </div>
             <!-- cta area end -->
-        </main>
-
-        <!-- footer area start -->
-        <footer class="footer-area h3_footer-area">
-            <div class="footer-top pt-240 pb-55">
-                <div class="container">
-                   <div class="row justify-content-between">
-                        <div class="col-xl-3 col-lg-7 col-md-7 col-sm-12">
-                            <div class="footer-widget mb-40">
-                                <div class="footer-logo">
-                                    <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo-white.png') }} alt=""></a>
-                                </div>
-                                <p class="footer-widget-text mb-35">
-                                    Through a combination of lectures, readings, discussions, students will gain solid foundation in educational.
-                                </p>
-                                <div class="footer-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-5 col-md-5 col-sm-6 d-flex justify-content-xl-center">
-                            <div class="footer-widget mb-40">
-                                <h5 class="footer-widget-title">Useful Link</h5>
-                                <div class="footer-widget-list">
-                                    <ul>
-                                        <li><a href="{{ url('/blog') }}">Blogs</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">Conditions</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-7 col-md-7 col-sm-12 order-md-3 order-xl-4">
-                            <div class="footer-widget ml-80 mb-40">
-                                <h5 class="footer-widget-title">Newsletter</h5>
-                                <p class="footer-widget-text mb-20 newsletter-text">Sign up foe our newsletter and get 34% <br> off your next course.</p>
-                                <form action="#">
-                                    <div class="footer-subscribe-form">
-                                        <input type="email" placeholder="Enter Your Email*">
-                                        <button type="submit">Subscribe</button>
-                                    </div>
-                                    <div class="footer-subscribe-condition">
-                                        <label class="condition_label">I agree to the terms of use and privacy policy.
-                                            <input type="checkbox">
-                                            <span class="check_mark"></span>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright-area">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="copyright-text">
-                                <p>Copyright © 2025 All Rights Reserved by Hamari Product</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer area end -->
-
-		<!-- JS here -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}></script>
-        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}></script>
-        <script src="{{ asset('assets/js/swiper-bundle.min.js') }}></script>
-        <script src="{{ asset('assets/js/jquery.meanmenu.min.js') }}></script>
-        <script src="{{ asset('assets/js/wow.min.js') }}></script>
-        <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}></script>
-        <script src="{{ asset('assets/js/jquery.scrollUp.min.js') }}></script>
-        <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}></script>
-        <script src="{{ asset('assets/js/odometer.min.js') }}></script>
-        <script src="{{ asset('assets/js/appear.min.js') }}></script>
-        <script src="{{ asset('assets/js/main.js') }}></script>
-    </body>
-</html>
+       @endsection
