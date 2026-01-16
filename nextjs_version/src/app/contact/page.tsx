@@ -10,13 +10,13 @@ export default function ContactPage() {
     return (
         <>
             <section className="breadcrumb-area pt-175 pb-120">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="breadcrumb-content text-center">
                                 <h2 className="breadcrumb-title">Contact Us</h2>
                                 <nav aria-label="breadcrumb">
-                                    <ol className="breadcrumb justify-content-center">
+                                    <ol className="breadcrumb flex justify-center">
                                         <li className="breadcrumb-item">
                                             <Link href="/">Home</Link>
                                         </li>
@@ -32,15 +32,15 @@ export default function ContactPage() {
             </section>
 
             <section className="contact-area pt-120 pb-120">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="contact-wrap">
-                        <div className="row">
-                            <div className="col-xl-8 col-md-8">
+                        <div className="flex flex-wrap -mx-4">
+                            <div className="w-full md:w-2/3 xl:w-2/3 px-4">
                                 <div className="contact-content pr-80 mb-20">
                                     <h3 className="contact-title mb-25">Send Me Message</h3>
                                     <form action="#" className="contact-form">
-                                        <div className="row">
-                                            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6">
+                                        <div className="flex flex-wrap -mx-4">
+                                            <div className="w-full sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 px-4">
                                                 <div className="contact-form-input mb-30">
                                                     <input type="text" placeholder="Your Name" />
                                                     <span className="inner-icon">
@@ -48,7 +48,7 @@ export default function ContactPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6">
+                                            <div className="w-full sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 px-4">
                                                 <div className="contact-form-input mb-30">
                                                     <input type="email" placeholder="Email Address" />
                                                     <span className="inner-icon">
@@ -56,7 +56,7 @@ export default function ContactPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6">
+                                            <div className="w-full sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 px-4">
                                                 <div className="contact-form-input mb-30">
                                                     <input type="text" placeholder="Your Number" />
                                                     <span className="inner-icon">
@@ -64,7 +64,7 @@ export default function ContactPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 ">
+                                            <div className="w-full sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 px-4">
                                                 <div className="contact-form-input">
                                                     <span className="inner-icon inner-icon-select">
                                                         <i className="fa-thin fa-circle-exclamation"></i>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div className="col-12">
+                                            <div className="w-full px-4">
                                                 <div className="contact-form-input mb-50 contact-form-textarea">
                                                     <textarea
                                                         name="message"
@@ -94,7 +94,7 @@ export default function ContactPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-12">
+                                            <div className="w-full px-4">
                                                 <div className="contact-form-submit mb-30">
                                                     <div className="contact-form-btn">
                                                         <a href="#" className="theme-btn contact-btn">
@@ -114,7 +114,7 @@ export default function ContactPage() {
                                     </form>
                                 </div>
                             </div>
-                            <div className="col-xl-4 col-md-4">
+                            <div className="w-full md:w-1/3 xl:w-1/3 px-4">
                                 <div className="contact-info ml-50 mb-20">
                                     <h3 className="contact-title mb-40">Get In Touch</h3>
                                     <div className="contact-info-item">
@@ -170,18 +170,18 @@ export default function ContactPage() {
             </section>
 
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

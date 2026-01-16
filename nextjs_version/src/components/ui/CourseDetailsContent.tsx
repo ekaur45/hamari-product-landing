@@ -5,15 +5,16 @@ import Link from "next/link";
 
 export default function CourseDetailsContent() {
     const [activeTab, setActiveTab] = useState("overview");
+    const [openAccordion, setOpenAccordion] = useState<string | null>("collapseOne");
 
     return (
         <section className="course_details-area pt-120 pb-60">
-            <div className="container">
+            <div className="container mx-auto px-4">
                 <div className="course_details-img">
                     <img src="/assets/img/course/details/1.jpg" alt="" />
                 </div>
-                <div className="row">
-                    <div className="col-xl-8 col-lg-8">
+                <div className="flex flex-wrap -mx-4">
+                    <div className="w-full lg:w-2/3 xl:w-2/3 px-4">
                         <div className="course_details-wrap mb-55">
                             <div className="course_details-top mb-60">
                                 <h3 className="course_details-title">
@@ -189,9 +190,8 @@ export default function CourseDetailsContent() {
                                                             <button
                                                                 className="accordion-button"
                                                                 type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#collapseOne"
-                                                                aria-expanded="true"
+                                                                onClick={() => setOpenAccordion(openAccordion === "collapseOne" ? null : "collapseOne")}
+                                                                aria-expanded={openAccordion === "collapseOne"}
                                                                 aria-controls="collapseOne"
                                                             >
                                                                 Greetings and introduction
@@ -199,9 +199,8 @@ export default function CourseDetailsContent() {
                                                         </h2>
                                                         <div
                                                             id="collapseOne"
-                                                            className="accordion-collapse collapse show"
+                                                            className={`accordion-collapse ${openAccordion === "collapseOne" ? "show" : ""}`}
                                                             aria-labelledby="headingOne"
-                                                            data-bs-parent="#Expp"
                                                         >
                                                             <div className="accordion-body">
                                                                 <ul>
@@ -299,8 +298,8 @@ export default function CourseDetailsContent() {
                                                     Student Ratings &amp; Reviews
                                                 </h4>
                                                 <div className="course_details-review-wrap">
-                                                    <div className="row d-flex align-items-center">
-                                                        <div className="col-md-4 col-sm-4">
+                                                    <div className="flex flex-wrap items-center -mx-4">
+                                                        <div className="w-full sm:w-1/3 md:w-1/3 px-4">
                                                             <div className="course_details-review-left">
                                                                 <h5>5.0</h5>
                                                                 <ul>
@@ -333,7 +332,7 @@ export default function CourseDetailsContent() {
                                                                 <p>(4 Reviews)</p>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-8 col-sm-8">
+                                                        <div className="w-full sm:w-2/3 md:w-2/3 px-4">
                                                             <div className="course_details-review-content">
                                                                 <ul>
                                                                     <li>
@@ -358,7 +357,7 @@ export default function CourseDetailsContent() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4">
+                    <div className="w-full lg:w-1/3 xl:w-1/3 px-4">
                         <div className="course_details-sidebar mb-60">
                             <div className="course_details-price">
                                 <del>$36.00</del>

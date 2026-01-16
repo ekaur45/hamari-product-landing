@@ -16,15 +16,15 @@ export default function Sidebar() {
         <>
             <div className="sidebar-info side-info">
                 <div className="sidebar-logo-wrapper mb-25">
-                    <div className="row align-items-center">
-                        <div className="col-xl-6 col-8">
+                    <div className="flex flex-wrap items-center -mx-4">
+                        <div className="w-2/3 xl:w-1/2 px-4">
                             <div className="sidebar-logo">
                                 <Link href="/">
                                     <img src="/assets/img/logo/logo-white.png" alt="logo-img" />
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-xl-6 col-4">
+                        <div className="w-1/3 xl:w-1/2 px-4">
                             <div className="sidebar-close-wrapper text-end">
                                 <button className="sidebar-close side-info-close" onClick={closeSidebar}>
                                     <i className="fal fa-times"></i>

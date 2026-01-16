@@ -12,13 +12,13 @@ export default function AboutPage() {
         <>
             {/* Breadcrumb */}
             <section className="breadcrumb-area pt-175 pb-120">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="breadcrumb-content text-center">
                                 <h2 className="breadcrumb-title">About Us</h2>
                                 <nav aria-label="breadcrumb">
-                                    <ol className="breadcrumb justify-content-center">
+                                    <ol className="breadcrumb flex justify-center">
                                         <li className="breadcrumb-item">
                                             <Link href="/">Home</Link>
                                         </li>
@@ -35,16 +35,16 @@ export default function AboutPage() {
 
             {/* About Section */}
             <section className="h3_about-area pt-140 pb-90">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-6 col-lg-6">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap items-center -mx-4">
+                        <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-img mb-50">
                                 <div className="h3_about-inner-img w_img mr-50">
                                     <img src="/assets/img/landing-02.webp" alt="" />
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-6 col-lg-6 col-md-12">
+                        <div className="w-full md:w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-wrap mr-65 mb-50">
                                 <div className="section-area-3 mb-35">
                                     <span className="section-subtitle">Know About Us</span>
@@ -58,23 +58,23 @@ export default function AboutPage() {
                                     </p>
                                 </div>
                                 <div className="h3_about-content mb-35">
-                                    <div className="row">
-                                        <div className="col-sm-6">
+                                    <div className="flex flex-wrap -mx-4">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Personalised plans
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>AI + human expertise
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Safe & reliable
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Flexible
                                             </span>
@@ -95,9 +95,9 @@ export default function AboutPage() {
 
             {/* Teacher Area */}
             <section className="h2_teacher-area pb-80">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-6 col-lg-8 col-md-12 mb-30">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full md:w-full lg:w-2/3 xl:w-1/2 px-4 mb-30">
                             <div
                                 className="h2_teacher-section bg-default"
                                 style={{ backgroundImage: "url(/assets/img/teacher/2/bg.jpg)" }}
@@ -122,7 +122,7 @@ export default function AboutPage() {
                             </div>
                         </div>
                         {[1, 2, 3, 4, 5, 6].map((item) => (
-                            <div key={item} className="col-xl-3 col-lg-4 col-sm-6">
+                            <div key={item} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
                                 <div className="h2_teacher-item mb-30">
                                     <div className="h2_teacher-img">
                                         <img src={`/assets/img/teacher/2/${item}.jpg`} alt="" />
@@ -142,9 +142,9 @@ export default function AboutPage() {
 
             {/* Blog Area */}
             <section className="h2_blog-area pb-90">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-xl-6 col-lg-8 col-md-10">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap justify-center -mx-4">
+                        <div className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 px-4">
                             <div className="section-area-2 mb-50 text-center h2_blog-section-area">
                                 <h2 className="section-title mb-30">
                                     Our Latest
@@ -160,9 +160,9 @@ export default function AboutPage() {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="flex flex-wrap -mx-4">
                         {[1, 2, 3].map((item) => (
-                            <div key={item} className="col-xl-4 col-lg-6 col-md-6">
+                            <div key={item} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                                 <div className="h2_blog-item mb-30">
                                     <div className="h2_blog-img">
                                         <Link href="/blog-details">
@@ -197,18 +197,18 @@ export default function AboutPage() {
 
             {/* CTA Area */}
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

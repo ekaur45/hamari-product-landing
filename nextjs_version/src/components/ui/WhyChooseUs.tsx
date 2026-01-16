@@ -3,17 +3,17 @@ import Link from "next/link";
 export default function WhyChooseUs() {
     return (
         <section className="h9_choose-area">
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap -mx-4">
+                    <div className="w-full px-4">
                         <div className="section-area-9 text-center mb-40">
                             <span className="section-subtitle">Why Choose Us</span>
                             <h2 className="section-title mb-0">Reasons To Select Us</h2>
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-xl-4 col-lg-4 col-md-6">
+                <div className="flex flex-wrap -mx-4">
+                    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/3 px-4">
                         <div className="h9_choose-item mb-30">
                             <div className="h9_choose-item-icon">
                                 <img src="/assets/img/choose/1.png" alt="" />
@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4 col-md-6">
+                    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/3 px-4">
                         <div className="h9_choose-item mb-30">
                             <div className="h9_choose-item-icon">
                                 <img src="/assets/img/choose/2.png" alt="" />
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4 col-md-6">
+                    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/3 px-4">
                         <div className="h9_choose-item mb-30">
                             <div className="h9_choose-item-icon">
                                 <img src="/assets/img/choose/3.png" alt="" />
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6">
+                    <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                         <div className="h9_choose-item-big mb-30">
                             <div className="h9_choose-item-big-img">
                                 <img src="/assets/img/choose/bg-1.jpg" alt="" />
@@ -74,7 +74,7 @@ export default function WhyChooseUs() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6">
+                    <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                         <div className="h9_choose-item-big mb-30">
                             <div className="h9_choose-item-big-img">
                                 <img src="/assets/img/choose/bg-2.jpg" alt="" />

@@ -33,16 +33,16 @@ export default function Header() {
     return (
         <header>
             <div className={`h3_header-area ${isSticky ? "header-sticky sticky" : ""}`}>
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-3 col-sm-7 col-6">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap items-center -mx-4">
+                        <div className="w-1/2 sm:w-7/12 xl:w-1/4 px-4">
                             <div className="h3_header-logo">
                                 <Link href="/">
                                     <img src="/assets/img/logo/logo.png" alt="logo" />
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-xl-6 d-none d-xl-block">
+                        <div className="hidden xl:block xl:w-1/2 px-4">
                             <div className="h3_header-middle">
                                 <nav className="h3_main-menu mobile-menu" id="mobile-menu">
                                     <ul>
@@ -62,9 +62,9 @@ export default function Header() {
                                 </nav>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-sm-5 col-6">
+                        <div className="w-1/2 sm:w-5/12 xl:w-1/4 px-4">
                             <div className="h3_header-right">
-                                <div className="h3_header-btn d-none d-sm-block">
+                                <div className="h3_header-btn hidden sm:block">
                                     <a
                                         href={`${process.env.NEXT_PUBLIC_PORTAL_LINK}/auth/register` || "#"}
                                         className="header-btn theme-btn theme-btn-medium theme-btn-3"
@@ -72,7 +72,7 @@ export default function Header() {
                                         Sign Up Now<i className="fa-light fa-arrow-up-right"></i>
                                     </a>
                                 </div>
-                                <div className="header-menu-bar d-xl-none ml-10">
+                                <div className="header-menu-bar xl:hidden ml-10">
                                     <span className="header-menu-bar-icon side-toggle" onClick={toggleMobileMenu}>
                                         <i className="fa-light fa-bars"></i>
                                     </span>

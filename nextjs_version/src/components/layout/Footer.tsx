@@ -4,9 +4,9 @@ export default function Footer() {
     return (
         <footer className="footer-area h3_footer-area">
             <div className="footer-top pt-240 pb-55">
-                <div className="container">
-                    <div className="row justify-content-between">
-                        <div className="col-xl-3 col-lg-7 col-md-7 col-sm-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap justify-between -mx-4">
+                        <div className="w-full sm:w-full md:w-7/12 lg:w-7/12 xl:w-1/4 px-4">
                             <div className="footer-widget mb-40">
                                 <div className="footer-logo">
                                     <Link href="/">
@@ -43,7 +43,7 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-2 col-lg-5 col-md-5 col-sm-6 d-flex justify-content-xl-center">
+                        <div className="w-full sm:w-1/2 md:w-5/12 lg:w-5/12 xl:w-1/6 px-4 flex justify-center xl:justify-center">
                             <div className="footer-widget mb-40">
                                 <h5 className="footer-widget-title">Useful Link</h5>
                                 <div className="footer-widget-list">
@@ -64,7 +64,7 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-4 col-lg-7 col-md-7 col-sm-12 order-md-3 order-xl-4">
+                        <div className="w-full sm:w-full md:w-7/12 lg:w-7/12 xl:w-1/3 px-4 order-3 md:order-3 xl:order-4">
                             <div className="footer-widget ml-80 mb-40">
                                 <h5 className="footer-widget-title">Newsletter</h5>
                                 <p className="footer-widget-text mb-20 newsletter-text">
@@ -88,10 +88,10 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mx-auto px-4">
                 <div className="copyright-area">
-                    <div className="row">
-                        <div className="col-12">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="copyright-text">
                                 <p>Copyright © 2025 All Rights Reserved by Hamari Product</p>
                             </div>

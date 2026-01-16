@@ -63,9 +63,9 @@ export default function BlogPage() {
                     alt=""
                     className="breadcrumb-shape"
                 />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="breadcrumb-content">
                                 <h2 className="breadcrumb-title">Blog Grid</h2>
                                 <div className="breadcrumb-list">
@@ -79,10 +79,10 @@ export default function BlogPage() {
             </section>
 
             <section className="innerPage_blog-area pt-120 pb-90">
-                <div className="container">
-                    <div className="row">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
                         {blogs.map((blog, index) => (
-                            <div key={index} className="col-xl-4 col-lg-6 col-md-6">
+                            <div key={index} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                                 <div className="h2_blog-item mb-30">
                                     <div className="h2_blog-img">
                                         <Link href="/blog-details">
@@ -114,8 +114,8 @@ export default function BlogPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="row">
-                        <div className="col-12">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="pagination-area mt-20 mb-30">
                                 <ul>
                                     <li>
@@ -143,18 +143,18 @@ export default function BlogPage() {
             </section>
 
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

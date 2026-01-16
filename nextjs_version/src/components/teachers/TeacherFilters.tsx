@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function TeacherFilters() {
     return (
         <div className="bg-white border-b border-gray-200 sticky top-0 z-30 py-4 shadow-sm">
-            <div className="container">
+            <div className="container mx-auto px-4">
                 <div className="flex flex-col gap-4">
                     {/* Row 1: Primary Dropdowns */}
                     <div className="flex flex-wrap items-center gap-3">

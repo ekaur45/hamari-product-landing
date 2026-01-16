@@ -61,9 +61,9 @@ export default function TeamDetailsPage() {
                     alt=""
                     className="breadcrumb-shape"
                 />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="breadcrumb-content">
                                 <h2 className="breadcrumb-title">Our Professor</h2>
                                 <div className="breadcrumb-list">
@@ -77,14 +77,14 @@ export default function TeamDetailsPage() {
             </section>
 
             <section className="teacher_details-area pt-120 pb-60">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-4 col-md-5">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full md:w-5/12 lg:w-1/3 px-4">
                             <div className="teacher_details-img w_img mb-50">
                                 <img src="/assets/img/teacher/2/1.jpg" alt="" />
                             </div>
                         </div>
-                        <div className="col-lg-8 col-md-7">
+                        <div className="w-full md:w-7/12 lg:w-2/3 px-4">
                             <div className="teacher_details-content mb-50">
                                 <div className="teacher_details-admin">
                                     <h4 className="teacher_details-title">Marvin McKinney</h4>
@@ -161,9 +161,9 @@ export default function TeamDetailsPage() {
             </section>
 
             <section className="course-area pb-90">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="course-section-area">
                                 <div className="section-area section-area-top">
                                     <h2 className="section-title mb-50">Our Featured Courses</h2>
@@ -171,9 +171,9 @@ export default function TeamDetailsPage() {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="flex flex-wrap -mx-4">
                         {featuredCourses.map((course, index) => (
-                            <div key={index} className="col-xl-4 col-lg-6 col-md-6">
+                            <div key={index} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                                 <CourseCardTwo {...course} />
                             </div>
                         ))}
@@ -182,18 +182,18 @@ export default function TeamDetailsPage() {
             </section>
 
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

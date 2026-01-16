@@ -18,9 +18,9 @@ export default function BlogDetailsPage() {
                     alt=""
                     className="breadcrumb-shape"
                 />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="breadcrumb-content">
                                 <h2 className="breadcrumb-title">Blog Details</h2>
                                 <div className="breadcrumb-list">
@@ -34,12 +34,12 @@ export default function BlogDetailsPage() {
             </section>
 
             <section className="blog_details-area pt-120 pb-80">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="blog_details-img">
                         <img src="/assets/img/blog/details/1.jpg" alt="" />
                     </div>
-                    <div className="row">
-                        <div className="col-xl-8 col-lg-8">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full lg:w-2/3 xl:w-2/3 px-4">
                             <div className="blog_details-wrap mb-60">
                                 <div className="blog_details-top mb-50">
                                     <h3 className="blog_details-title">
@@ -198,8 +198,8 @@ export default function BlogDetailsPage() {
                                 </div>
                                 <div className="blog_details-related mb-45">
                                     <h3 className="blog_details-related-title">Related Blogs</h3>
-                                    <div className="row">
-                                        <div className="col-md-6">
+                                    <div className="flex flex-wrap -mx-4">
+                                        <div className="w-full md:w-1/2 px-4">
                                             <div className="h2_blog-item mb-30">
                                                 <div className="h2_blog-img">
                                                     <Link href="/blog-details">
@@ -230,7 +230,7 @@ export default function BlogDetailsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="w-full md:w-1/2 px-4">
                                             <div className="h2_blog-item mb-30">
                                                 <div className="h2_blog-img">
                                                     <Link href="/blog-details">
@@ -320,8 +320,8 @@ export default function BlogDetailsPage() {
                                 <div className="blog_details-message">
                                     <h3 className="blog_details-message-title">Send Me Message</h3>
                                     <form action="#" className="blog_details-form">
-                                        <div className="row">
-                                            <div className="col-sm-6">
+                                        <div className="flex flex-wrap -mx-4">
+                                            <div className="w-full sm:w-1/2 px-4">
                                                 <div className="blog_details-form-input mb-30">
                                                     <input type="text" placeholder="Your Name" />
                                                     <span className="inner-icon">
@@ -329,7 +329,7 @@ export default function BlogDetailsPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-sm-6">
+                                            <div className="w-full sm:w-1/2 px-4">
                                                 <div className="blog_details-form-input mb-30">
                                                     <input type="email" placeholder="Email Address" />
                                                     <span className="inner-icon">
@@ -337,7 +337,7 @@ export default function BlogDetailsPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-sm-6">
+                                            <div className="w-full sm:w-1/2 px-4">
                                                 <div className="blog_details-form-input mb-30">
                                                     <input type="text" placeholder="Your Number" />
                                                     <span className="inner-icon">
@@ -345,7 +345,7 @@ export default function BlogDetailsPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-sm-6">
+                                            <div className="w-full sm:w-1/2 px-4">
                                                 <div className="blog_details-form-input blog_details-form-input-select">
                                                     <span className="inner-icon">
                                                         <i className="fa-thin fa-circle-exclamation"></i>
@@ -362,7 +362,7 @@ export default function BlogDetailsPage() {
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div className="col-12">
+                                            <div className="w-full px-4">
                                                 <div className="blog_details-form-input mb-50 blog_details-form-textarea">
                                                     <textarea
                                                         name="message"
@@ -375,7 +375,7 @@ export default function BlogDetailsPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-12">
+                                            <div className="w-full px-4">
                                                 <div className="blog_details-form-submit">
                                                     <div className="blog_details-form-btn">
                                                         <a href="#" className="theme-btn blog_details-btn">
@@ -396,7 +396,7 @@ export default function BlogDetailsPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-4 col-lg-4">
+                        <div className="w-full lg:w-1/3 xl:w-1/3 px-4">
                             <div className="blog_details-sidebar mb-60">
                                 <div className="blog_details-widget">
                                     <h4 className="blog_details-widget-title">Search</h4>
@@ -586,18 +586,18 @@ export default function BlogDetailsPage() {
             </section>
 
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

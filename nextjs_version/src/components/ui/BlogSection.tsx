@@ -33,16 +33,16 @@ const blogs = [
 export default function BlogSection() {
     return (
         <section className="h3_blog-area pt-135 pb-110">
-            <div className="container">
-                <div className="row align-items-end mb-30">
-                    <div className="col-md-9">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap items-end mb-30 -mx-4">
+                    <div className="w-full md:w-3/4 px-4">
                         <div className="section-area-3 mb-30">
                             <span className="section-subtitle">Featured News</span>
                             <h2 className="section-title mb-0">Read Our Latest News</h2>
                         </div>
                     </div>
-                    <div className="col-md-3">
-                        <div className="h3_category-section-button mb-40 text-md-end">
+                    <div className="w-full md:w-1/4 px-4">
+                        <div className="h3_category-section-button mb-40 text-center md:text-end">
                             <Link
                                 href="/blog"
                                 className="theme-btn theme-btn-medium theme-btn-3"
@@ -52,9 +52,9 @@ export default function BlogSection() {
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="flex flex-wrap -mx-4">
                     {blogs.map((blog) => (
-                        <div key={blog.id} className="col-xl-4 col-lg-6 col-md-6">
+                        <div key={blog.id} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                             <div className="h3_blog-item mb-30">
                                 <div className="h3_blog-img">
                                     <Link href="/blog">

@@ -35,15 +35,15 @@ const testimonials = [
 export default function TestimonialSwiper() {
     return (
         <section className="h3_testimonial-area pt-135 pb-140">
-            <div className="container">
-                <div className="row align-items-end mb-30">
-                    <div className="col-md-8">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap items-end mb-30 -mx-4">
+                    <div className="w-full md:w-2/3 px-4">
                         <div className="section-area-3 mb-30">
                             <span className="section-subtitle">Testimonials</span>
-                            <h2 className="section-title mb-0">What’s People Say</h2>
+                            <h2 className="section-title mb-0">What's People Say</h2>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="w-full md:w-1/3 px-4">
                         <div className="h3_testimonial-navigation mb-40">
                             <div className="h3_testimonial-prev">
                                 <i className="fa-regular fa-arrow-left"></i>

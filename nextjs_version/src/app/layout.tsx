@@ -37,7 +37,6 @@ export default function RootLayout({
 
                 {/* Scripts */}
                 <Script src="/assets/js/jquery.min.js" strategy="beforeInteractive" />
-                <Script src="/assets/js/bootstrap.bundle.min.js" strategy="lazyOnload" />
                 <Script src="/assets/js/swiper-bundle.min.js" strategy="lazyOnload" />
                 <Script src="/assets/js/jquery.meanmenu.min.js" strategy="lazyOnload" />
                 <Script src="/assets/js/wow.min.js" strategy="lazyOnload" />

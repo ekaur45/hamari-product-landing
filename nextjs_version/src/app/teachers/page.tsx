@@ -27,9 +27,9 @@ export default async function TeachersPage({ searchParams }: Props) {
             {/* Horizontal Preply-style Header Filters */}
             <TeacherFilters />
 
-            <div className="container py-10">
-                <div className="row">
-                    <div className="col-xl-10">
+            <div className="container mx-auto px-4 py-10">
+                <div className="flex flex-wrap -mx-4">
+                    <div className="w-full xl:w-5/6 px-4">
                         {/* Results Header */}
                         <div className="flex flex-col sm:flex-row justify-between items-end sm:items-center mb-8 gap-4 px-2">
                             <div className="flex flex-col gap-1">
@@ -95,9 +95,9 @@ export default async function TeachersPage({ searchParams }: Props) {
             <div className="mt-20 py-20 bg-gray-900 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-1/3 h-full bg-pink-600/10 blur-[120px]"></div>
-                <div className="container relative z-10">
-                    <div className="row align-items-center">
-                        <div className="col-xl-7">
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="flex flex-wrap items-center -mx-4">
+                        <div className="w-full xl:w-7/12 px-4">
                             <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-4 block">Work at Taleemiyat</span>
                             <h2 className="text-5xl font-black text-white mb-6 font-outfit leading-tight">
                                 Become an online <br /><span className="text-blue-500 italic">English tutor</span> today
@@ -110,7 +110,7 @@ export default async function TeachersPage({ searchParams }: Props) {
                                 <i className="fa-solid fa-arrow-right ml-3"></i>
                             </Link>
                         </div>
-                        <div className="col-xl-5 hidden xl:block">
+                        <div className="w-full xl:w-5/12 px-4 hidden xl:block">
                             <div className="relative">
                                 <div className="absolute -inset-10 bg-gradient-to-tr from-blue-600 to-pink-600 opacity-20 blur-3xl rounded-full animate-pulse"></div>
                                 <img src="/assets/img/team-bg.jpg" className="relative z-10 rounded-[40px] shadow-2xl border-4 border-gray-800" alt="Teaching" />

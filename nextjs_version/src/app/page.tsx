@@ -57,9 +57,9 @@ export default async function Home() {
             {/* Banner Area */}
             <section className="h3_banner-area">
                 <div className="h3_single-banner">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className="col-xl-7 col-lg-6 col-md-12">
+                    <div className="container mx-auto px-4">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-7/12 px-4">
                                 <div className="h3_banner-content">
                                     <div className="section-area-3 mb-45 ">
                                         <span className="section-subtitle">🏆 The Leader in Online Learning</span>
@@ -80,7 +80,7 @@ export default async function Home() {
                                     <img className="h3_banner-content-shape-1" src="assets/img/banner/3/shape-1.png" alt="" />
                                 </div>
                             </div>
-                            <div className="col-xl-5 col-lg-6 d-none d-lg-block">
+                            <div className="w-full lg:w-1/2 xl:w-5/12 px-4 hidden lg:block">
                                 <div className="h3_banner-right">
                                     <div className="h3_banner-img">
                                         <img src="assets/img/hero-01.webp" alt="" />
@@ -110,10 +110,10 @@ export default async function Home() {
 
             {/* Counter Area */}
             <div className="counter-area pt-120 pb-110">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="counter-wrap">
-                        <div className="row g-0">
-                            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div className="flex flex-wrap gap-0 -mx-4">
+                            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
                                 <div className="counter-item">
                                     <div className="counter-icon">
                                         <i className="fa-thin fa-globe"></i>
@@ -126,7 +126,7 @@ export default async function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
                                 <div className="counter-item">
                                     <div className="counter-icon">
                                         <i className="fa-thin fa-book-open"></i>
@@ -139,7 +139,7 @@ export default async function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
                                 <div className="counter-item">
                                     <div className="counter-icon">
                                         <i className="fa-thin fa-user-group"></i>
@@ -152,7 +152,7 @@ export default async function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 px-4">
                                 <div className="counter-item">
                                     <div className="counter-icon">
                                         <i className="fa-thin fa-medal"></i>
@@ -177,14 +177,14 @@ export default async function Home() {
                     alt=""
                     className="h3_about-top-shape"
                 />
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-6 col-lg-6">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap items-center -mx-4">
+                        <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-img mb-50">
                                 <div className="h3_about-inner-img w_img mr-50">
                                     <img src="/assets/img/landing-02.webp" alt="" />
                                 </div>
-                                <div className="h3_about-img-shape d-none d-sm-block">
+                                <div className="h3_about-img-shape hidden sm:block">
                                     <img
                                         className="h3_about-img-shape-1"
                                         src="/assets/img/about/3/shape-1.png"
@@ -203,7 +203,7 @@ export default async function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-6 col-lg-6 col-md-12">
+                        <div className="w-full md:w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-wrap mr-65 mb-50">
                                 <img
                                     src="/assets/img/about/3/shape-4.png"
@@ -222,23 +222,23 @@ export default async function Home() {
                                     </p>
                                 </div>
                                 <div className="h3_about-content mb-35">
-                                    <div className="row">
-                                        <div className="col-sm-6">
+                                    <div className="flex flex-wrap -mx-4">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Personalised plans
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>AI + human expertise
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Safe & reliable
                                             </span>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="w-full sm:w-1/2 px-4">
                                             <span>
                                                 <i className="fa-regular fa-check"></i>Flexible
                                             </span>
@@ -268,9 +268,9 @@ export default async function Home() {
 
             {/* Research Area */}
             <section className="h6_research-area pt-110 pb-70 fix">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="section-area-6 mb-55 text-center">
                                 <h2 className="section-title mb-25">
                                     Empowering Students with Expert Tutors & Smart AI Tools
@@ -278,13 +278,13 @@ export default async function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-xxl-7 col-xl-6 col-lg-6">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full lg:w-1/2 xl:w-7/12 2xl:w-7/12 px-4">
                             <div className="h6_research-img w_img mb-50">
                                 <img src="/assets/img/landing-03.jpg" alt="" />
                             </div>
                         </div>
-                        <div className="col-xxl-5 col-xl-6 col-lg-6">
+                        <div className="w-full lg:w-1/2 xl:w-5/12 2xl:w-5/12 px-4">
                             <div className="h6_research-wrap mb-50">
                                 <div className="h6_research-content">
                                     <p>
@@ -324,43 +324,43 @@ export default async function Home() {
 
             {/* Course Area */}
             <section className="h3_course-area pt-135 pb-110">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-12">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="section-area-3 text-center mb-40">
                                 <span className="section-subtitle">Top Popular Courses</span>
                                 <h2 className="section-title mb-0">Explore Featured Courses</h2>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-xl-12">
+                    <div className="flex flex-wrap -mx-4">
+                        <div className="w-full px-4">
                             <div className="h3_course-tab mb-40">
-                                <ul className="nav nav-pills" id="pills-tab" role="tablist">
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                <ul className="flex flex-wrap gap-2" id="pills-tab" role="tablist">
+                                    <li role="presentation">
+                                        <button className="px-4 py-2 rounded-full bg-blue-500 text-white active" id="pills-home-tab" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                                             See All
                                         </button>
                                     </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabIndex={-1} >Trending</button>
+                                    <li role="presentation">
+                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-profile-tab" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabIndex={-1} >Trending</button>
                                     </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" tabIndex={-1}>Featured</button>
+                                    <li role="presentation">
+                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-contact-tab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" tabIndex={-1}>Featured</button>
                                     </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="pills-four-tab" data-bs-toggle="pill" data-bs-target="#pills-four" type="button" role="tab" aria-controls="pills-four" aria-selected="false" tabIndex={-1}>Web Design</button>
+                                    <li role="presentation">
+                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-four-tab" type="button" role="tab" aria-controls="pills-four" aria-selected="false" tabIndex={-1}>Web Design</button>
                                     </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="pills-five-tab" data-bs-toggle="pill" data-bs-target="#pills-five" type="button" role="tab" aria-controls="pills-five" aria-selected="false" tabIndex={-1}>Popular</button>
+                                    <li role="presentation">
+                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-five-tab" type="button" role="tab" aria-controls="pills-five" aria-selected="false" tabIndex={-1}>Popular</button>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="flex flex-wrap -mx-4">
                         {courses.map((course, index) => (
-                            <div key={index} className="col-xl-4 col-lg-6 col-md-6">
+                            <div key={index} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                                 <CourseCard {...course} />
                             </div>
                         ))}
@@ -393,18 +393,18 @@ export default async function Home() {
 
             {/* CTA Area */}
             <div className="cta-area h3_cta-area">
-                <div className="container">
+                <div className="container mx-auto px-4">
                     <div className="cta-wrapper">
-                        <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-6">
-                                <div className="cta-content mb-30 mb-lg-0">
+                        <div className="flex flex-wrap items-center -mx-4">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
+                                <div className="cta-content mb-30 lg:mb-0">
                                     <span className="cta-subtitle">Download App</span>
                                     <h2 className="cta-title">
                                         Are you Ready to Start your Online Course?
                                     </h2>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6">
+                            <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                                 <div className="cta-button">
                                     <a href="#" className="cta-btn">
                                         <i className="fa-brands fa-apple"></i>Apple Store

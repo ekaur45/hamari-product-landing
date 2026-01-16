@@ -44,15 +44,15 @@ export default function TeacherSwiper({ teachers }: { teachers: any[] }) {
 
     return (
         <section className="h8_teacher-area pt-110 pb-115">
-            <div className="container">
-                <div className="row align-items-center mb-30">
-                    <div className="col-xl-8 col-lg-8 col-md-8">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap items-center mb-30 -mx-4">
+                    <div className="w-full md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
                         <div className="section-area-8 mb-20">
                             <span className="section-subtitle">Our Professionals</span>
                             <h2 className="section-title mb-0">Meet Our Teachers</h2>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4 col-md-4">
+                    <div className="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-4">
                         <div className="h8_teacher-navigation mb-30">
                             <div className="h8_teacher-prev">
                                 <svg
