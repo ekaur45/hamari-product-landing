@@ -1,0 +1,19 @@
+@import "../../public/assets/css/bootstrap.min.css";
+
+@import "tailwindcss";
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+}
+
+/* Custom styles to override or complement imported CSS */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Example font, adjust as needed */
+}
