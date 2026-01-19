@@ -58,14 +58,15 @@ export interface RequestOptions {
 export class ApiService {
     private axiosInstance: AxiosInstance;
     private loading = false;
-
+    private isPrivate: boolean = false;
     private config: ApiConfig = {
-        baseUrl: process.env.NEXT_PUBLIC_API_URL || '',
+        baseUrl: this.isPrivate ? process.env.NEXT_PUBLIC_PRIVATE_API_URL || '' : process.env.NEXT_PUBLIC_API_URL || '',
         timeout: 30000,
         retryAttempts: 3,
     };
 
-    constructor() {
+    constructor(isPrivate: boolean = false) {
+        this.isPrivate = isPrivate;
         this.axiosInstance = axios.create({
             baseURL: this.config.baseUrl,
             timeout: this.config.timeout,
@@ -74,7 +75,7 @@ export class ApiService {
                 Accept: 'application/json',
             },
         });
-    }
+    }    
 
     /* =======================
        Loading State
@@ -115,6 +116,10 @@ export class ApiService {
         throw apiError;
     }
 
+    private getUrl(endpoint: string) {
+        return this.isPrivate ? `${process.env.NEXT_PUBLIC_PRIVATE_API_URL}${endpoint}` : `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
+    }
+
     /* =======================
        Generic Request
     ======================= */
@@ -131,11 +136,12 @@ export class ApiService {
             const response: AxiosResponse<ApiResponse<T>> =
                 await this.axiosInstance.request({
                     method,
-                    url: endpoint,
+                    url: this.getUrl(endpoint),
                     data: body,
                     params: options?.params,
                     headers: options?.headers,
                     responseType: options?.responseType,
+                    withCredentials: true,
                 });
 
             return response.data;

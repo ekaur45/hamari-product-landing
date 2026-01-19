@@ -9,7 +9,6 @@ import TeacherService from "@/services/teacher.service";
 const teacherService: TeacherService = new TeacherService()
 export default async function Home() {
     const teachers = await teacherService.getFeaturedTeachers();
-    console.log(teachers)
     const courses = [
         {
             img: "/assets/img/course/1/1.jpg",

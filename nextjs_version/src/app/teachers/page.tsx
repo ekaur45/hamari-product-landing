@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TeacherCard from "@/components/teachers/TeacherCard";
 import TeacherFilters from "@/components/teachers/TeacherFilters";
+import { Teacher } from "@/types/teacher.types";
 
 export const metadata: Metadata = {
     title: "Find English Tutors - Taleemiyat",
@@ -21,7 +22,6 @@ export default async function TeachersPage({ searchParams }: Props) {
     const page = Number(params.page) || 1;
 
     const teachersData = await teacherService.getTeachers(search, page, 10);
-
     return (
         <div className="bg-[#FBFCFD] min-h-screen">
             {/* Horizontal Preply-style Header Filters */}
@@ -29,17 +29,17 @@ export default async function TeachersPage({ searchParams }: Props) {
 
             <div className="container mx-auto px-4 py-10">
                 <div className="flex flex-wrap -mx-4">
-                    <div className="w-full xl:w-5/6 px-4">
+                    <div className="w-full p-4 md:p-0">
                         {/* Results Header */}
-                        <div className="flex flex-col sm:flex-row justify-between items-end sm:items-center mb-8 gap-4 px-2">
+                        <div className="flex flex-col sm:flex-row justify-between md:items-end sm:items-center mb-4 md:mb-8 gap-4 px-2">
                             <div className="flex flex-col gap-1">
-                                <h1 className="text-3xl font-black text-gray-900 font-outfit">
+                                <h1 className="text-lg md:text-3xl font-black text-gray-900 font-outfit">
                                     {teachersData.pagination?.total || 0} English teachers available
                                 </h1>
                                 <p className="text-gray-500 font-medium">Find your perfect match and book a trial lesson</p>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm shrink-0">
+                            <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm shrink-0 hidden md:block">
                                 <span className="text-xs font-black uppercase tracking-widest text-gray-400">Sort by:</span>
                                 <select className="border-none bg-transparent font-black text-gray-900 focus:ring-0 cursor-pointer outline-none text-sm">
                                     <option>Our top picks</option>
@@ -52,7 +52,7 @@ export default async function TeachersPage({ searchParams }: Props) {
 
                         {/* List of Tutors */}
                         <div className="space-y-6">
-                            {teachersData.data?.filter((t: any) => t.user).map((teacher: any) => (
+                            {teachersData?.data?.map((teacher: Teacher) => (
                                 <TeacherCard key={teacher.id} teacher={teacher} />
                             ))}
 
@@ -62,7 +62,7 @@ export default async function TeachersPage({ searchParams }: Props) {
                                         <i className="fa-light fa-user-magnifying-glass text-3xl text-gray-300"></i>
                                     </div>
                                     <h3 className="text-2xl font-black text-gray-900 mb-2 font-outfit">No tutors match your search</h3>
-                                    <p className="text-gray-500 max-w-sm mx-auto font-medium">We couldn't find any tutors that match your current filter settings. Try relaxing your filters.</p>
+                                    <p className="text-gray-500 max-w-sm mx-auto font-medium">We couldn&apos;t find any tutors that match your current filter settings. Try relaxing your filters.</p>
                                     <button className="mt-8 theme-btn px-8">Reset all filters</button>
                                 </div>
                             )}
