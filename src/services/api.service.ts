@@ -126,35 +126,59 @@ export class ApiService {
     ======================= */
 
     private async request<T>(
-        method: AxiosRequestConfig['method'],
+        method: AxiosRequestConfig["method"],
         endpoint: string,
         body?: any,
         options?: RequestOptions
-    ): Promise<ApiResponse<T>> {
+      ): Promise<ApiResponse<T>> {
         this.setLoading(true);
-
-        try {
-            const response: AxiosResponse<ApiResponse<T>> =
-                await this.axiosInstance.request({
-                    method,
-                    url: this.getUrl(endpoint),
-                    data: body,
-                    params: options?.params,
-                    headers: {
-                        ...options?.headers,
-                        "X-Currency": getCookie("currency"),
-                    },
-                    responseType: options?.responseType,
-                    withCredentials: true,
-                });
-
-            return response.data;
-        } catch (error) {
-            this.handleError(error as AxiosError);
-        } finally {
-            this.setLoading(false);
+      
+        let serverCookies = "";
+        let currency: string | undefined;
+      
+        // ✅ SERVER ONLY
+        if (typeof window === "undefined") {
+          const { cookies } = await import("next/headers");
+          const cookieStore = await cookies();
+      
+          serverCookies = cookieStore.toString();
+          currency = cookieStore.get("currency")?.value;
         }
-    }
+      
+        try {
+          const response: AxiosResponse<ApiResponse<T>> =
+            await this.axiosInstance.request({
+              method,
+              url: this.getUrl(endpoint),
+              data: body,
+              params: options?.params,
+              headers: {
+                ...options?.headers,
+      
+                // ✅ forward cookies ONLY on server
+                ...(serverCookies && { Cookie: serverCookies }),
+      
+                // ✅ currency works on both
+                "X-Currency":
+                  currency ?? (typeof window !== "undefined"
+                    ? getCookie("currency")
+                    : undefined),
+              },
+              responseType: options?.responseType,
+      
+              // ⚠️ only meaningful in browser
+              withCredentials: typeof window !== "undefined",
+            });
+      
+          return response.data;
+        } catch (error) {
+          this.handleError(error as AxiosError);
+          throw error;
+        } finally {
+          this.setLoading(false);
+        }
+      }
+      
 
     /* =======================
        HTTP Methods

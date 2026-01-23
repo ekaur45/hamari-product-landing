@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 import { PrimeReactProvider } from 'primereact/api';
 import { cookies } from "next/headers";
 import { User } from "@/types/user.types";
-import { Toast } from "primereact/toast";
-import UiToast from "@/components/ui/UiToast";
+import ProfileService from "@/services/profile.service";
+const profileService = new ProfileService();
 export default async function RootLayout({
     children,
 }: Readonly<{
@@ -29,7 +29,10 @@ export default async function RootLayout({
     if (isLoggedIn) {
         const token = cookieStore.get("taleemiyat_token")?.value;
         decodedToken = JSON.parse(atob(token?.split(".")[1] || ""));
-        
+        const profile = await profileService.getProfile();
+        if (profile.statusCode === 200) {
+            decodedToken = profile.data;
+        }
     }
     return (
         <html lang="zxx">
