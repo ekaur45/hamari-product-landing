@@ -7,38 +7,7 @@ import "swiper/css/navigation";
 import Link from "next/link";
 import TeacherService from "@/services/teacher.service";
 
-const teachers = [
-    {
-        id: 1,
-        name: "Annette Blacks",
-        role: "UI/UX Developer",
-        img: "/assets/img/teacher/8/1.jpg",
-    },
-    {
-        id: 2,
-        name: "Michaels Leonel",
-        role: "Web Designer",
-        img: "/assets/img/teacher/8/2.jpg",
-    },
-    {
-        id: 3,
-        name: "Jenny Wilson",
-        role: "Photographer",
-        img: "/assets/img/teacher/8/3.jpg",
-    },
-    {
-        id: 4,
-        name: "Dianne Russell",
-        role: "Graphic Designer",
-        img: "/assets/img/teacher/8/4.jpg",
-    },
-    {
-        id: 5,
-        name: "Annette Blacks",
-        role: "UI/UX Developer",
-        img: "/assets/img/teacher/8/1.jpg",
-    },
-];
+
 
 export default function TeacherSwiper({ teachers }: { teachers: any[] }) {
 

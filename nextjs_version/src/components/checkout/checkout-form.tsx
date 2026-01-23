@@ -3,6 +3,8 @@ import PaymentService from "@/services/payment.service";
 import { CreatePaymentIntentData } from "@/types/payment.types";
 import { Teacher, TeacherSubject } from "@/types/teacher.types";
 import { useState, FormEvent } from "react";
+import Modal from "../ui/Modal";
+import { SignIn } from "../auth/SignIn";
 
 interface CheckoutFormProps {
     teacher: Teacher;
@@ -37,6 +39,7 @@ export default function CheckoutForm({
     const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
     const [couponDiscount, setCouponDiscount] = useState<number>(0);
     const [isApplying, setIsApplying] = useState<boolean>(false);
+    const [isSigninModalVisible,setIsSigninModalVisible] = useState<boolean>(false);
 
     const selectedSubject = teacher.teacherSubjects.find(
         (_subject: TeacherSubject) => _subject.subject.id === subject
@@ -95,11 +98,14 @@ export default function CheckoutForm({
             couponCode:appliedCoupon || "",
         }
         const response = await paymentService.createPaymentIntent(d);
+        setIsCreatingPaymentIntent(false);
         if(response.statusCode === 200){
-            setIsCreatingPaymentIntent(false);
             const url = response.data.url;
             window.location.href = url;
-        } else {
+        } else if(response.statusCode === 401){
+            setIsSigninModalVisible(true);
+        }else {
+            
             setIsCreatingPaymentIntent(false);
             alert("Failed to create payment intent");
         }
@@ -107,8 +113,18 @@ export default function CheckoutForm({
 
     return (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sticky top-24 h-fit">
+            <Modal
+                isOpen={isSigninModalVisible}
+                onClose={() => setIsSigninModalVisible(false)}
+                width="min-w-xl"
+                title="Sign In"
+            >
+                <SignIn onSuccess={() => {
+                    setIsSigninModalVisible(false);
+                    handleProceedToPayment();
+                }} />
+            </Modal>
             <h1 className="text-2xl font-bold text-gray-900 mb-6">Booking Summary</h1>
-
             {/* Price Breakdown */}
             <div className="mb-6 space-y-3 pb-6 border-b border-gray-200">
                 <div className="flex justify-between items-center">

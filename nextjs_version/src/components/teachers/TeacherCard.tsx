@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Teacher } from "@/types/teacher.types";
-import { getImageUrl } from "@/utils/misc.util";
+import { exchangeRate, getImageUrl } from "@/utils/misc.util";
 
 interface TeacherCardProps {
     teacher: Teacher;
@@ -126,7 +126,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                             <div className="hidden md:hidden flex items-start md:items-center justify-between pt-4 border-t border-gray-100 mt-6">
                                 <div>
                                     <div className="text-xl font-black text-gray-900">
-                                        $ {teacher.hourlyRate || 50}
+                                        $ {exchangeRate(teacher.hourlyRate || 50)}
                                     </div>
                                     <div className="text-[10px] text-gray-400 font-bold uppercase">
                                         50-min lesson
@@ -142,12 +142,12 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                         <div className="flex-1 flex flex-col justify-between min-w-0">
                             {/* Desktop price */}
                             <div className="justify-between hidden md:flex">
-                                <div className="hidden md:flex flex-col items-end shrink-0">
-                                    <div className="text-2xl font-black text-gray-900">
-                                        $
+                                <div className="hidden md:flex flex-col items-start shrink-0">
+                                    <div className="text-lg font-black text-gray-500">
+                                        $ <span className="text-gray-900 text-lg font-bold">{exchangeRate(teacher.hourlyRate || 50)}</span>
                                     </div>
                                     <div className="text-xs text-gray-400 font-bold uppercase tracking-tighter">
-                                        50-min lesson
+                                        Starting from
                                     </div>
                                 </div>
                                 <button className="text-gray-400 hover:text-gray-900 transition-all hidden md:block">
@@ -155,11 +155,11 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                 </button>
                             </div>
                             <div className="flex flex-row items-center justify-between gap-6 mb-6 py-3 px-4 bg-gray-50 rounded-xl">
-                                <div className="flex flex-col items-center gap-1.5">
+                                <div className="flex flex-col items-center gap-1.5 md:hidden">
                                     <div className="flex items-center gap-1.5">
                                         <i className="fa-solid fa-dollar-sign text-gray-400" />
                                         <span className="font-black text-gray-900">
-                                        {teacher.hourlyRate || 50}
+                                        { exchangeRate(teacher.hourlyRate || 50) }
                                         </span>
                                     </div>
                                     <span className="text-gray-400 text-sm font-medium">
@@ -203,7 +203,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                 </div>
                             </div>
                             <div className="flex flex-row md:flex-col gap-2 md:gap-3">
-                                <button className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white border-2 border-gray-100 text-gray-900 font-bold rounded-lg hover:bg-gray-50 hover:shadow-md transition-all sm:w-auto">
+                                <button className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white border-2 border-gray-100 text-gray-900 font-bold rounded-lg hover:bg-gray-50 hover:shadow-md transition-all sm:w-auto md:hidden">
                                     <em className="fa-solid fa-clock"></em>
                                 </button>
                                 <button

@@ -17,12 +17,11 @@ export default function Modal({
   onClose,
   title,
   children = <></>,
-  width = "max-w-2xl"
+  width = "min-w-full md:min-w-4xl"
 }: ModalProps) {
 
   return (<Dialog visible={isOpen} onHide={onClose} showHeader={false} modal={true} blockScroll={true} resizable={false} 
-    style={{ width: `${width}` }}
-    className="backdrop-blur-sm rounded-2xl min-w-full min-h-2xl md:min-w-4xl md:min-h-4xl"
+    className={`backdrop-blur-sm rounded-2xl ${width} md:min-h-4xl min-h-2xl`}
     maskClassName="backdrop-blur-sm bg-black/50 scrollbar-hide"
     maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.5)',overflowY: 'hidden' }}
   >

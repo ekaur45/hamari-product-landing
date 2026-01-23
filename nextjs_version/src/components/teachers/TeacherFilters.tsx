@@ -1,23 +1,20 @@
 "use client";
-
-import { useState } from "react";
-
 export default function TeacherFilters() {
     return (
         <div className="bg-white border-b border-gray-200 sticky top-0 z-30 py-4 shadow-sm">
             <div className="container mx-auto px-4 md:hidden">
                 <div className="flex items-center gap-2 justify-between w-full">
-                <div className="relative w-full">
-                            <i className="fa-light fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input
-                                type="text"
-                                placeholder="Search by name or keyword..."
-                                className="w-full bg-gray-50 border border-gray-100 rounded-xl py-2.5 pl-11 pr-4 text-sm font-medium focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                            />
-                        </div>
-                        <button className="bg-primary text-white px-3 rounded-lg py-1.5">
-                                <i className="fa-solid fa-filter"></i>                                
-                            </button>
+                    <div className="relative w-full">
+                        <i className="fa-light fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input
+                            type="text"
+                            placeholder="Search by name or keyword..."
+                            className="w-full bg-gray-50 border border-gray-100 rounded-xl py-2.5 pl-11 pr-4 text-sm font-medium focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        />
+                    </div>
+                    <button className="bg-primary text-white px-3 rounded-lg py-1.5">
+                        <i className="fa-solid fa-filter"></i>
+                    </button>
                 </div>
             </div>
             <div className="container mx-auto px-4 hidden md:block">

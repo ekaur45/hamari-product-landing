@@ -1,3 +1,4 @@
+import { getCookie } from '@/utils/misc.util';
 import axios, {
     AxiosInstance,
     AxiosRequestConfig,
@@ -139,7 +140,10 @@ export class ApiService {
                     url: this.getUrl(endpoint),
                     data: body,
                     params: options?.params,
-                    headers: options?.headers,
+                    headers: {
+                        ...options?.headers,
+                        "X-Currency": getCookie("currency"),
+                    },
                     responseType: options?.responseType,
                     withCredentials: true,
                 });

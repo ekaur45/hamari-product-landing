@@ -86,6 +86,7 @@ export default function TeacherIntroCard({ teacher }: TeacherIntroCardProps) {
                     <UiCalendar availability={teacher.availabilities}
                         className="mb-4"
                         selectedAvailability={selectedSlot}
+                        teacherBookings={teacher.teacherBookings}
                         onSlotClick={(slot: AvailabilitySlot) => setSelectedSlot(slot)}
 
                     />

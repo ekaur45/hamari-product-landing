@@ -2,12 +2,14 @@
 
 import { User } from "@/types/user.types";
 import Link from "next/link";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
 import AuthService from "@/services/auth.service";
-import { getImageUrl } from "@/utils/misc.util";
+import { getCookie, getImageUrl } from "@/utils/misc.util";
 import UISelect from "@/components/ui/Select";
 import CurrencyService from "@/services/currency.service";
+import UiMenu from "../ui/UiMenu";
+import { Menu } from "primereact/menu";
 
 const authService = new AuthService();
 const currencyService: CurrencyService = new CurrencyService();
@@ -24,6 +26,7 @@ export default function Header({
     isLoggedIn: boolean;
     decodedToken: User | null;
 }) {
+    const menuRef = useRef<Menu>(null);
     const router = useRouter();
     const [isSticky, setIsSticky] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,9 +42,11 @@ export default function Header({
     const handleCurrencyChange = (currency: string) => {
         setSelectedCurrency(currency);
         if (typeof window !== "undefined") {
+            document.cookie = `currency=${currency}; path=/;SameSite=Lax`;
             localStorage.setItem("selectedCurrency", currency);
             // You can emit a custom event or use context for currency changes
             window.dispatchEvent(new CustomEvent("currencyChanged", { detail: currency }));
+            window.location.reload();
         }
     };
 
@@ -61,7 +66,8 @@ export default function Header({
             const currencies = await currencyService.getCurrencies();
             setCurrencies(currencies);
             if (typeof window !== "undefined") {
-                const savedCurrency = localStorage.getItem("selectedCurrency");
+                const savedCurrency = getCookie("currency");
+                //const savedCurrency = localStorage.getItem("selectedCurrency");
                 if (savedCurrency) {
                     setSelectedCurrency(savedCurrency);
                 } else {
@@ -168,10 +174,31 @@ export default function Header({
                                 {isLoggedIn ? (
 
                                     <div className="h3_header-right flex items-center gap-2 sm:gap-3">
+                                        <UiMenu 
+                                        model={[{
+                                            label: "Profile",
+                                            icon: "fa-light fa-user",
+                                            command: () => {
+                                                if(typeof window !== "undefined") {
+                                                    window.location.href = `${process.env.NEXT_PUBLIC_PORTAL_LINK}/profile`;
+                                                }
+                                            },
+                                        },
+                                            {
+                                            label: "Logout",
+                                            icon: "fa-light fa-sign-out",
+                                            command: handleLogout,
+                                        }]}
+                                        id="popup_menu_left"
+                                        popup={true}
+                                        ref={menuRef}
+                                        />
                                         {/* Currency Selector */}
-
                                         {/* User Profile Section */}
-                                        <div className="hidden sm:flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                        <div className="hidden sm:flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                                        aria-controls="popup_menu_left"
+                                        onClick={(event) => menuRef.current?.toggle(event)}
+                                        >
                                             {/* User Avatar */}
                                             <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0 border-2 border-primary/20">
                                                 {decodedToken?.details?.profileImage ? (
@@ -195,6 +222,7 @@ export default function Header({
                                                 <p className="text-xs text-gray-500">Welcome back</p>
                                             </div>
                                         </div>
+                                       
 
                                         {/* Mobile Welcome Text */}
                                         <div className="sm:hidden text-right">
@@ -204,14 +232,14 @@ export default function Header({
                                         </div>
 
                                         {/* Logout Button */}
-                                        <button
+                                        {/* <button
                                             onClick={handleLogout}
                                             className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 bg-white border-2 border-gray-300 text-gray-900 font-semibold text-sm sm:text-base rounded-xl hover:bg-gray-50 hover:border-primary hover:text-primary transition-all whitespace-nowrap"
                                             title="Logout"
                                         >
                                             <em className="fa-light fa-sign-out text-sm sm:text-base"></em>
                                             <span className="hidden sm:inline">Logout</span>
-                                        </button>
+                                        </button> */}
 
                                         {/* Mobile Menu Toggle */}
                                         <div className="header-menu-bar xl:hidden ml-2">
