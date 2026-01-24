@@ -9,14 +9,14 @@ export const getImageUrl = (path: string) => {
 }
 
 export const exchangeRate = (amount: number): string => {
-    if (typeof window === "undefined") return amount.toString() + " USD";
+    if (typeof window === "undefined") return "$ " + amount.toString();
 
     let currencies: ICurrency[] = [];
 
     try {
         currencies = JSON.parse(localStorage.getItem("currencies") ?? "[]");
     } catch {
-        return amount.toString() + " USD";
+        return "$ " + amount.toString();
     }
 
     const selectedCurrency = getCookie("currency") ?? "USD";
@@ -25,7 +25,7 @@ export const exchangeRate = (amount: number): string => {
     const to = currencies.find(currency => currency.code === selectedCurrency);
 
     if (!from || !to || typeof to.exchangeRate !== "number") {
-        return amount.toString() + " USD";
+        return "$ " + amount.toString();
     }
 
     // Correct formula: convert from base → target

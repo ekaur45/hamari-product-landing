@@ -126,7 +126,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                             <div className="hidden md:hidden flex items-start md:items-center justify-between pt-4 border-t border-gray-100 mt-6">
                                 <div>
                                     <div className="text-xl font-black text-gray-900">
-                                        $ {exchangeRate(teacher.hourlyRate || 50)}
+                                        {exchangeRate(teacher.hourlyRate || 50)}
                                     </div>
                                     <div className="text-[10px] text-gray-400 font-bold uppercase">
                                         50-min lesson
@@ -144,7 +144,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                             <div className="justify-between hidden md:flex">
                                 <div className="hidden md:flex flex-col items-start shrink-0">
                                     <div className="text-lg font-black text-gray-500">
-                                        $ <span className="text-gray-900 text-lg font-bold">{exchangeRate(teacher.hourlyRate || 50)}</span>
+                                        <span className="text-gray-900 text-lg font-bold">{exchangeRate(teacher.hourlyRate || 50)}</span>
                                     </div>
                                     <div className="text-xs text-gray-400 font-bold uppercase tracking-tighter">
                                         Starting from

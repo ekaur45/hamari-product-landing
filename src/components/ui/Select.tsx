@@ -19,11 +19,15 @@ export default function UISelect({ ...props }: DropdownProps) {
                         className: 'text-gray-900 text-lg font-medium w-full'
                     },
                     list: {
-                        className: 'bg-white border border-gray-300 shadow-lg rounded-xl p-2 w-full'
+                        className: 'bg-white border border-gray-300 shadow-lg rounded-xl p-2 w-full flex flex-col gap-2'
                     },
                     item: {
-                        className: 'text-gray-900 text-lg font-medium w-full px-3 py-2 cursor-pointer hover:bg-primary/10 rounded-xl hover:border-primary hover:text-primary transition-all'
+                        className: 'text-gray-900 text-lg font-medium w-full px-3 py-2 cursor-pointer hover:bg-primary/5 rounded-xl hover:border-primary hover:text-primary transition-all aria-selected:bg-primary/10 aria-selected:text-primary',                        
+                    },
+                    select:{
+                        className: 'text-gray-900 text-lg font-medium w-full text-red'
                     }
+
                 }
             }
             />

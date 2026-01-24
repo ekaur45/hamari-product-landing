@@ -4,7 +4,7 @@ import {
     Teacher,
     TeacherSubject,
 } from "@/types/teacher.types";
-import { getImageUrl } from "@/utils/misc.util";
+import { exchangeRate, getImageUrl } from "@/utils/misc.util";
 import React, { useState } from "react";
 import Modal from "@/components/ui/Modal";
 import UISelect from "@/components/ui/Select";
@@ -65,13 +65,13 @@ export default function TeacherIntroCard({ teacher }: TeacherIntroCardProps) {
                         itemTemplate={(option: TeacherSubject) => (
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="font-bold">{option.subject.name}</p>
-                                <p className="text-sm font-medium">{option.hourlyRate}</p>
+                                <p className="text-sm font-medium">{exchangeRate(option.hourlyRate || 0)}</p>
                             </div>
                         )}
                         valueTemplate={(option: TeacherSubject) => (
                             option && option.subject ? (<div className="flex flex-row gap-2 items-center">
                                 <p className="text-gray-600 font-bold">{option.subject.name}</p>
-                                <p className="text-gray-600 text-sm font-medium">{option.hourlyRate}</p>
+                                <p className="text-gray-600 text-sm font-medium">{ exchangeRate(option.hourlyRate || 0)}</p>
                             </div>
 
                             ) : (<div className="flex flex-row gap-2">

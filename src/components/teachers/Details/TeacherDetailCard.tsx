@@ -2,7 +2,7 @@
 
 import Tooltip from "@/components/tooltip/Tooltip";
 import { Availability, Teacher, TeacherSubject } from "@/types/teacher.types";
-import { getImageUrl } from "@/utils/misc.util";
+import { exchangeRate, getImageUrl } from "@/utils/misc.util";
 import Link from "next/link";
 import React from "react";
 
@@ -112,7 +112,7 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={getImageUrl(
-                                    teacher.user.details.profileImage
+                                    teacher?.user?.details?.profileImage
                                 )}
                                 alt="Profile"
                                 className="block w-[6rem] h-[6rem] md:w-[9rem] md:h-[9rem] object-cover aspect-square overflow-hidden bg-gray-100"
@@ -204,7 +204,7 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                         <div className="md:hidden flex items-center justify-between pt-4 border-t border-gray-100 mt-6">
                             <div>
                                 <div className="text-xl font-black text-gray-900">
-                                    $ {teacher.hourlyRate || 50}
+                                    {exchangeRate(teacher.hourlyRate || 0)}
                                 </div>
                                 <div className="text-[10px] text-gray-400 font-bold uppercase">
                                     50-min lesson
@@ -227,14 +227,10 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
                     <div className="flex items-center gap-1.5">
-                        <i className="fa-solid fa-dollar-sign text-gray-400" />
                         <span className="font-black text-gray-900">
-                            {teacher.hourlyRate || 50}{" "}
+                            {exchangeRate(teacher.hourlyRate || 0)}
                         </span>
                     </div>
-                    <span className="text-gray-400 text-sm font-medium">
-                        USD
-                    </span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
                     <div className="flex items-center gap-1.5">
@@ -287,14 +283,10 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                                 </span>
                             </span>
                             <span className="flex items-center gap-1">
-                                <em className="fas fa-dollar-sign text-gray-400 text-md"></em>
                                 <span className="text-gray-900 text-lg font-medium ">
-                                    {subject.hourlyRate || 50}
+                                    {exchangeRate(subject.hourlyRate || 50)}
                                 </span>
                                 <span className="text-gray-400 text-sm font-medium">
-                                    USD
-                                </span>
-                                <span className="text-gray-900 text-sm font-medium">
                                     / hour
                                 </span>
                             </span>
