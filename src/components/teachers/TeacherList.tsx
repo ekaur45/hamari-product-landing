@@ -104,6 +104,7 @@ export default function TeacherList({ teachersData, subjectsData }: { teachersDa
                         <div className="w-full xl:w-5/12 px-4 hidden xl:block">
                             <div className="relative">
                                 <div className="absolute -inset-10 bg-gradient-to-tr from-blue-600 to-pink-600 opacity-20 blur-3xl rounded-full animate-pulse"></div>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src="/assets/img/team-bg.jpg" className="relative z-10 rounded-[40px] shadow-2xl border-4 border-gray-800" alt="Teaching" />
                             </div>
                         </div>

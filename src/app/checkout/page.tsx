@@ -1,6 +1,5 @@
 "use server";
 import { ApiResponse } from "@/services/api.service";
-import CheckoutError from "./error";
 import TeacherService from "@/services/teacher.service";
 import { Teacher } from "@/types/teacher.types";
 import CheckoutDetails from "@/components/checkout/checout-details";

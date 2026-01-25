@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UiMultiSelect from "../ui/UiMultiSelect";
 import { Subject } from "@/types/teacher.types";
 import { useRouter, useSearchParams } from "next/navigation";
