@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link"
-import { Teacher } from "@/types/teacher.types";
-import { exchangeRate, getImageUrl } from "@/utils/misc.util";
+import { Teacher, TeacherSubject } from "@/types/teacher.types";
+import { exchangeRate, getImageUrl, getVideoUrl } from "@/utils/misc.util";
+import { useEffect, useRef, useState } from "react";
 
 interface TeacherCardProps {
     teacher: Teacher;
@@ -17,13 +18,22 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
     const fullName = `${teacher?.user?.firstName} ${teacher?.user?.lastName}`;
     const rating = 4.9;
     const reviews = 42;
-    const lessons = 150;
-    const activeStudents = 12;
-
-
+    const [readMore, setReadMore] = useState(false);
+    const [isClamped, setIsClamped] = useState(false);
+    const[isPlayingVideo, setIsPlayingVideo] = useState(false);
+    const bioRef = useRef<HTMLParagraphElement>(null);
+    useEffect(() => {
+        if (bioRef.current) {
+            setIsClamped(bioRef.current.scrollHeight > bioRef.current.clientHeight);
+        }
+    }, [bioRef]);
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-4 group mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-4 group mb-4"
+            onMouseLeave={() => {
+                setIsPlayingVideo(false);
+            }}
+            >
                 {/* LEFT / MAIN CARD */}
                 <Link href={`/teachers/${teacher?.id}?name=${fullName}&bio=${teacher.tagline}`} className="mb-2">
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 grid grid-cols-1 md:grid-cols-[1fr_4fr_2fr] gap-8 transition-all hover:shadow-lg group">
@@ -61,11 +71,8 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                 <div className="flex-1">
                                     <div className="hidden md:flex items-center justify-between flex-wrap gap-2 mb-2">
                                         <span className="text-2xl font-black text-gray-900 ">
-
                                             {fullName}
-
                                         </span>
-
                                         <div className="flex flex-wrap items-center gap-2">
                                             <span className="bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-blue-100">
                                                 Professional
@@ -89,11 +96,10 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                         <div className="flex items-center gap-1.5">
                                             <i className="fa-solid fa-comment-dots text-gray-400" />
                                             <span>
-                                                Speaks:{" "}
-                                                <span className="text-gray-900">
-                                                    English (Native), Urdu
-                                                    (Advanced)
-                                                </span>
+                                                Teaches:{" "}
+                                                { teacher.teacherSubjects.length > 0 ? teacher.teacherSubjects.slice(0, 3).map((subject: TeacherSubject) => subject.subject.name).join(', ') : "No subjects found"}
+                                                { teacher.teacherSubjects.length > 3 && <span className="text-gray-400 text-sm font-medium"> and <span className="text-gray-900 font-bold">
+                                                    {teacher.teacherSubjects.length - 3} more</span></span>}
                                             </span>
                                         </div>
                                     </div>
@@ -109,15 +115,32 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                 <p className="font-bold text-gray-900 mb-1 line-clamp-1 hidden md:block">
                                     {teacher.tagline}
                                 </p>
-                                <p className="line-clamp-2">
+                                <p 
+                                ref={bioRef}
+                                className={`${readMore ? 'line-clamp-none' : 'line-clamp-2'}`}>
                                     {teacher.introduction ||
                                         "Patient and experienced tutor dedicated to helping you achieve your language goals."}
                                 </p>
-                                <span
-                                    className="inline-block mt-1 text-blue-600 font-bold hover:underline"
+                                { !readMore && isClamped && <span
+                                    className="inline-block mt-1 text-blue-600 font-bold hover:underline "
+                                    onClick={e=>{
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setReadMore(true);
+                                    }}
                                 >
                                     Read more
-                                </span>
+                                </span>}
+                                {readMore && isClamped && <span
+                                    className="inline-block mt-1 text-blue-600 font-bold hover:underline"
+                                    onClick={e=>{
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setReadMore(false);
+                                    }}
+                                >
+                                    Read less
+                                </span>}
                             </div>
 
                             {/* Actions */}
@@ -182,7 +205,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                     <div className="flex items-center gap-1.5">
                                         <i className="fa-solid fa-users text-blue-400" />
                                         <span className="font-black text-gray-900">
-                                            {activeStudents}
+                                            {teacher.totalStudents}
                                         </span>
                                     </div>
                                     <span className="text-gray-400 text-sm font-medium">
@@ -194,7 +217,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                                     <div className="flex items-center gap-1.5">
                                         <i className="fa-solid fa-chalkboard-user text-purple-400" />
                                         <span className="font-black text-gray-900">
-                                            {lessons}
+                                            {teacher.teacherBookings.length}
                                         </span>
                                     </div>
                                     <span className="text-gray-400 text-sm font-medium">
@@ -232,7 +255,12 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                 <div
                     className="hidden md:flex opacity-0 md:group-hover:opacity-100 flex-col gap-3 transition-all duration-300"
                 >
+                    {isPlayingVideo?(<>
                     <div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden group/video cursor-pointer">
+                    <iframe src={getVideoUrl(teacher.introductionVideoUrl)} width="100%" height="100%"></iframe>                    
+                        {/* <video src={getImageUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay muted loop /> */}
+                    </div>
+                    </>):(<div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden group/video cursor-pointer">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={getImageUrl(teacher?.introductionVideoThumbnailUrl)}
@@ -240,11 +268,17 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                             className="w-full h-full object-cover opacity-60 group-hover/video:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-transform">
+                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-transform"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setIsPlayingVideo(true);
+                            }}
+                            >
                                 <i className="fa-solid fa-play text-white text-xl ml-1" />
                             </div>
                         </div>
-                    </div>
+                    </div>)}
 
                     <button className="flex items-center justify-center gap-2 w-full py-2.5 bg-gray-100 text-gray-700 font-bold rounded-xl text-sm hover:bg-gray-200 transition-colors">
                         View full schedule

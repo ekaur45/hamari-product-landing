@@ -45,7 +45,7 @@ export default function CheckoutForm({
     const selectedSubject = teacher.teacherSubjects.find(
         (_subject: TeacherSubject) => _subject.subject.id === subject
     );
-    const hourlyRate = selectedSubject?.hourlyRate || 0.0;
+    const hourlyRate = Number(exchangeRate(selectedSubject?.hourlyRate || 0)) || 0.0;
     const duration = calculateDuration(availabilityStartTime, availabilityEndTime);
     const subtotal = hourlyRate;// * duration;
     const discount = couponDiscount > 0 ? (subtotal * couponDiscount) / 100 : 0;
@@ -82,6 +82,7 @@ export default function CheckoutForm({
 
     const handleProceedToPayment = async () => {
         setIsCreatingPaymentIntent(true);
+        
         // TODO: Implement payment processing
         console.log("Proceeding to payment with:", {
             teacherId: teacher.id,
@@ -130,7 +131,7 @@ export default function CheckoutForm({
             <div className="mb-6 space-y-3 pb-6 border-b border-gray-200">
                 <div className="flex justify-between items-center">
                     <span className="text-gray-600">Hourly Rate</span>
-                    <span className="font-semibold text-gray-900">{exchangeRate(hourlyRate || 0)}</span>
+                    <span className="font-semibold text-gray-900">{hourlyRate || 0}</span>
                 </div>
                 <div className="flex justify-between items-center">
                     <span className="text-gray-600">Duration</span>
@@ -140,7 +141,7 @@ export default function CheckoutForm({
                 </div>
                 <div className="flex justify-between items-center">
                     <span className="text-gray-600">Subtotal</span>
-                    <span className="font-semibold text-gray-900">{exchangeRate(subtotal || 0)}</span>
+                    <span className="font-semibold text-gray-900">{subtotal || 0}</span>
                 </div>
                 {appliedCoupon && (
                     <div className="flex justify-between items-center text-green-600">
@@ -148,7 +149,7 @@ export default function CheckoutForm({
                             <em className="fas fa-tag"></em>
                             Discount ({appliedCoupon} - {couponDiscount}%)
                         </span>
-                        <span className="font-semibold">- {exchangeRate(discount || 0)}</span>
+                        <span className="font-semibold">- {discount || 0}</span>
                     </div>
                 )}
             </div>
@@ -157,7 +158,7 @@ export default function CheckoutForm({
             <div className="mb-6 pb-6 border-b border-gray-200">
                 <div className="flex justify-between items-center">
                     <span className="text-lg font-bold text-gray-900">Total</span>
-                    <span className="text-2xl font-bold text-primary">{exchangeRate(total || 0)}</span>
+                    <span className="text-2xl font-bold text-primary">{total || 0}</span>
                 </div>
             </div>
 

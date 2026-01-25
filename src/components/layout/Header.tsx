@@ -42,7 +42,7 @@ export default function Header({
     const handleCurrencyChange = (currency: string) => {
         setSelectedCurrency(currency);
         if (typeof window !== "undefined") {
-            document.cookie = `currency=${currency}; path=/;SameSite=Lax`;
+            document.cookie = `currency=${currency}; ${process.env.NEXT_PUBLIC_COOKIE_DOMAIN ? `Domain=${process.env.NEXT_PUBLIC_COOKIE_DOMAIN}; secure;` : ''} path=/;SameSite=Lax`;
             localStorage.setItem("selectedCurrency", currency);
             // You can emit a custom event or use context for currency changes
             window.dispatchEvent(new CustomEvent("currencyChanged", { detail: currency }));

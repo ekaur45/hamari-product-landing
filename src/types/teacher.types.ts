@@ -17,6 +17,7 @@ export interface Teacher {
     teacherSubjects:TeacherSubject[];
     availabilities:Availability[];
     teacherBookings:TeacherBooking[];
+    totalStudents:number;
 }
 export interface Availability {
     id: string;

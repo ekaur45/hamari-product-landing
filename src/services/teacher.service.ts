@@ -7,8 +7,9 @@ export default class TeacherService {
         this.apiService = new ApiService(false);
     }
 
-    async getTeachers(search: string, page: number = 1, limit: number = 10) {
-        return await this.apiService.getPaginated<Teacher>(`/teacher`, page, limit, { params: { search } });
+    async getTeachers(search: URLSearchParams, page: number = 1, limit: number = 10) {
+        console.log((Object.fromEntries(search.entries())));
+        return await this.apiService.getPaginated<Teacher>(`/teacher`, page, limit, { params: { ...(Object.fromEntries(search.entries()) as unknown as Record<string, string>) } });
     }
     async getFeaturedTeachers() {
         return await this.apiService.getPaginated<Teacher>(`/teacher/featured`);
