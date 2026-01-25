@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Teacher, TeacherSubject } from "@/types/teacher.types";
-import { exchangeRate, getImageUrl, getVideoUrl } from "@/utils/misc.util";
+import { exchangeRate, getImageUrl, getVideoUrl, isYouTubeUrl } from "@/utils/misc.util";
 import { useEffect, useRef, useState } from "react";
 
 interface TeacherCardProps {
@@ -257,7 +257,8 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                 >
                     {isPlayingVideo?(<>
                     <div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden group/video cursor-pointer">
-                    <iframe src={getVideoUrl(teacher.introductionVideoUrl)} width="100%" height="100%"></iframe>                    
+                    {isYouTubeUrl(teacher.introductionVideoUrl)?(<iframe src={getVideoUrl(teacher.introductionVideoUrl)} width="100%" height="100%"></iframe>):(<video src={getVideoUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay muted loop />)}
+                    
                         {/* <video src={getImageUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay muted loop /> */}
                     </div>
                     </>):(<div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden group/video cursor-pointer">
