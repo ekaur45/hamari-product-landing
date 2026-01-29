@@ -68,26 +68,32 @@ export default async function Home() {
                                         <p className="section-text">Through a combination of lectures, readings, and discussions, students.</p>
                                     </div>
                                     <form action="/teachers" className="h3_banner-form">
-                                        <div className="h3_banner-form-item-search">
+                                        <div className="w-full flex items-center gap-2">
+                                            <div className="w-8 h-full flex items-center justify-center">
                                             <i className="fa-regular fa-magnifying-glass"></i>
-                                            <input type="text" name="q" placeholder="What do you want to learn?" />
+                                            </div>
+                                            <input type="text" name="search" placeholder="What do you want to learn?" className="w-[calc(100%-50px)] h-full focus:outline-none" />
                                         </div>
                                         <div className="h3_banner-form-item">
                                             <button type="submit" className="theme-btn theme-btn-medium theme-btn-3 h3_banner-form-btn">Search</button>
                                         </div>
                                     </form>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img className="h3_banner-content-shape-1" src="assets/img/banner/3/shape-1.png" alt="" />
                                 </div>
                             </div>
                             <div className="w-full lg:w-1/2 xl:w-5/12 px-4 hidden lg:block">
                                 <div className="h3_banner-right">
                                     <div className="h3_banner-img">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src="assets/img/hero-01.webp" alt="" />
                                     </div>
                                     <div className="h3_banner-right-shape">
                                         <div className="inner-shpae-1">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img className="h3_banner-shape-2" src="assets/img/banner/3/shape-2.png" alt="" />
                                         </div>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img className="h3_banner-shape-1" src="assets/img/banner/3/shape-3.png" alt="" />
                                     </div>
                                     <div className="h3_banner-meta">
@@ -171,6 +177,7 @@ export default async function Home() {
 
             {/* About Area */}
             <section className="h3_about-area pt-140 pb-90">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src="/assets/img/about/3/shape-5.png"
                     alt=""
@@ -181,19 +188,23 @@ export default async function Home() {
                         <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-img mb-50">
                                 <div className="h3_about-inner-img w_img mr-50">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src="/assets/img/landing-02.webp" alt="" />
                                 </div>
                                 <div className="h3_about-img-shape hidden sm:block">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         className="h3_about-img-shape-1"
                                         src="/assets/img/about/3/shape-1.png"
                                         alt=""
                                     />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         className="h3_about-img-shape-2"
                                         src="/assets/img/about/3/shape-2.png"
                                         alt=""
                                     />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         className="h3_about-img-shape-3"
                                         src="/assets/img/about/3/shape-3.png"
@@ -204,6 +215,7 @@ export default async function Home() {
                         </div>
                         <div className="w-full md:w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-wrap mr-65 mb-50">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src="/assets/img/about/3/shape-4.png"
                                     alt=""
@@ -280,6 +292,7 @@ export default async function Home() {
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full lg:w-1/2 xl:w-7/12 2xl:w-7/12 px-4">
                             <div className="h6_research-img w_img mb-50">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src="/assets/img/landing-03.jpg" alt="" />
                             </div>
                         </div>
@@ -321,60 +334,7 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Course Area */}
-            <section className="h3_course-area pt-135 pb-110">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap -mx-4">
-                        <div className="w-full px-4">
-                            <div className="section-area-3 text-center mb-40">
-                                <span className="section-subtitle">Top Popular Courses</span>
-                                <h2 className="section-title mb-0">Explore Featured Courses</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-4">
-                        <div className="w-full px-4">
-                            <div className="h3_course-tab mb-40">
-                                <ul className="flex flex-wrap gap-2" id="pills-tab" role="tablist">
-                                    <li role="presentation">
-                                        <button className="px-4 py-2 rounded-full bg-blue-500 text-white active" id="pills-home-tab" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-                                            See All
-                                        </button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-profile-tab" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabIndex={-1} >Trending</button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-contact-tab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" tabIndex={-1}>Featured</button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-four-tab" type="button" role="tab" aria-controls="pills-four" aria-selected="false" tabIndex={-1}>Web Design</button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button className="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" id="pills-five-tab" type="button" role="tab" aria-controls="pills-five" aria-selected="false" tabIndex={-1}>Popular</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-4">
-                        {courses.map((course, index) => (
-                            <div key={index} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
-                                <CourseCard {...course} />
-                            </div>
-                        ))}
-                    </div>
-                    <div className="tutor_button">
-                        <Link
-                            href="/course"
-                            className="theme-btn theme-btn-medium theme-btn-3"
-                        >
-                            Explore All Courses
-                            <i className="fa-light fa-arrow-up-right"></i>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            
 
             {/* Teachers Area */}
             {

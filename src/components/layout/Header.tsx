@@ -176,6 +176,14 @@ export default function Header({
                                     <div className="h3_header-right flex items-center gap-2 sm:gap-3">
                                         <UiMenu 
                                         model={[{
+                                            label: "Dashboard",
+                                            icon: "fa-light fa-house",
+                                            command: () => {
+                                                if(typeof window !== "undefined") {
+                                                    window.location.href = `${process.env.NEXT_PUBLIC_PORTAL_LINK}/${decodedToken?.role==='Student'?'student':decodedToken?.role==='Teacher'?'teacher':'parent'}/dashboard/`;
+                                                }
+                                            },
+                                        },{
                                             label: "Profile",
                                             icon: "fa-light fa-user",
                                             command: () => {
