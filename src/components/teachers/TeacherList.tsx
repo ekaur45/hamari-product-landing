@@ -6,6 +6,7 @@ import Link from "next/link";
 import TeacherCard from "./TeacherCard";
 import { useState } from "react";
 import TeacherService from "@/services/teacher.service";
+import UISelect from "../ui/Select";
 const teacherService: TeacherService = new TeacherService();
 export default function TeacherList({ teachersData, subjectsData }: { teachersData: PaginatedApiResponse<Teacher>, subjectsData: ApiResponse<Subject[]> }) {
     const [searchedTeachers, setSearchedTeachers] = useState<PaginatedApiResponse<Teacher>>(teachersData || { data: [], pagination: { page: 1, limit: 10, total: 0, totalPages: 0, hasNext: false, hasPrev: false } });
@@ -32,14 +33,20 @@ export default function TeacherList({ teachersData, subjectsData }: { teachersDa
                                 <p className="text-gray-500 font-medium">Find your perfect match and book a trial lesson</p>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm shrink-0 hidden md:block">
+                            <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm shrink-0 hidden md:flex">
                                 <span className="text-xs font-black uppercase tracking-widest text-gray-400">Sort by:</span>
-                                <select className="border-none bg-transparent font-black text-gray-900 focus:ring-0 cursor-pointer outline-none text-sm">
+                                <UISelect
+                                    options={[{id: 'top_picks', name: 'Our top picks'}, {id: 'price_low_to_high', name: 'Price: low to high'}, {id: 'price_high_to_low', name: 'Price: high to low'}, {id: 'number_of_reviews', name: 'Number of reviews'}]}
+                                    optionLabel="name"
+                                    optionValue="id"
+                                    placeholder="Sort by"
+                                />
+                                {/* <select className="border-none bg-transparent font-black text-gray-900 focus:ring-0 cursor-pointer outline-none text-sm">
                                     <option>Our top picks</option>
                                     <option>Price: low to high</option>
                                     <option>Price: high to low</option>
                                     <option>Number of reviews</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
 

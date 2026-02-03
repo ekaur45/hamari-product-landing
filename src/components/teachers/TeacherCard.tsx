@@ -339,11 +339,11 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                         View full schedule
                     </button>
 
-                    <span
-                        className="flex items-center justify-center w-full py-2.5 bg-white border border-gray-200 text-gray-600 font-bold rounded-xl text-sm hover:border-gray-900 hover:text-gray-900 transition-all"
+                    <Link href={`/teachers/${teacher?.id}`}
+                        className="hidden md:flex items-center justify-center gap-2 px-8 py-2 bg-white border-2 border-gray-100 text-gray-900 font-bold rounded-xl hover:bg-gray-50 hover:shadow-md transition-all sm:w-auto"
                     >
                         See {teacher.user.firstName}&apos;s profile
-                    </span>
+                    </Link>
                 </div>
             </div>
         </>

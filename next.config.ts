@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         port: "3000", // 👈 allows all ports (3000, 8000, etc.)
       },
       {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337", // 👈 allows all ports (3000, 8000, etc.)
+      },
+      {
         protocol: 'http',
         hostname: 'localhost',
         port: '8080',

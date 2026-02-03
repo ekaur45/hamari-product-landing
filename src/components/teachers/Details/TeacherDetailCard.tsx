@@ -77,12 +77,12 @@ const reviewsData = [
     },
 ];
 
-export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {    
+export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
     const rating = 4.9;
     const reviews = 42;
     const lessons = 150;
     const activeStudents = 12;
-    
+
     return (
         <div className="p-4 md:p-0">
 
@@ -271,7 +271,7 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
             <span className="text-xl font-bold text-gray-900">Subjects</span>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 gap-8 transition-all hover:shadow-lg group h-fit mb-4">
                 <div className="flex flex-col gap-2">
-                    {teacher.teacherSubjects.map((subject: TeacherSubject) => (
+                    {teacher.teacherSubjects.slice(0, 3).map((subject: TeacherSubject) => (
                         <div
                             key={subject.id}
                             className="bg-primary-50 text-primary font-bold px-2 py-2 rounded-lg border border-primary/30 flex items-center justify-between hover:shadow-md transition-all shadow-primary-500/20 cursor-pointer"
@@ -292,6 +292,13 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                             </span>
                         </div>
                     ))}
+                    {teacher.teacherSubjects.length > 3 && (
+                        <div className="flex items-center justify-center">
+                            <Link href={`/teachers/${teacher.id}`} className="text-blue-600 font-bold hover:underline">
+                                View {teacher.teacherSubjects.length - 3} more subjects
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
             <span className="text-xl font-bold text-gray-900 mb-2">
@@ -349,11 +356,10 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                                     return (
                                         <div
                                             key={day + hour}
-                                            className={`relative border-b border-r border-gray-200 h-12 transition-all cursor-pointer ${
-                                                availability
+                                            className={`relative border-b border-r border-gray-200 h-12 transition-all cursor-pointer ${availability
                                                     ? "bg-primary-100"
                                                     : "bg-white"
-                                            }`}
+                                                }`}
                                         >
                                             {availability && (
                                                 <Tooltip
@@ -420,39 +426,39 @@ export default function TeacherDetailCard({ teacher }: TeacherDetailCardProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {reviewsData.map((review) => (
                             <div key={review.name + review.date + review.rating} className="flex flex-col gap-2 bg-gray-100 rounded-lg p-4">
-                            <div className="flex flex-row items-center justify-between">
-                                <div className="flex flex-row items-center justify-center gap-2">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={review.profileImage} alt={review.name} className="w-10 h-10 rounded-full" />
-                                    <div className="flex flex-col">
-                                    <span className="text-gray-900 text-md font-bold">
-                                        John Doe
-                                    </span>
-                                    <span className="text-gray-400 text-sm font-medium">
-                                        English Tutor
-                                    </span>
+                                <div className="flex flex-row items-center justify-between">
+                                    <div className="flex flex-row items-center justify-center gap-2">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={review.profileImage} alt={review.name} className="w-10 h-10 rounded-full" />
+                                        <div className="flex flex-col">
+                                            <span className="text-gray-900 text-md font-bold">
+                                                John Doe
+                                            </span>
+                                            <span className="text-gray-400 text-sm font-medium">
+                                                English Tutor
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-end justify-center gap-2">
+                                        <span className="text-gray-900 text-md font-bold">
+                                            4.9{" "}
+                                            <span className="text-gray-400 text-sm font-medium">
+                                                (5)
+                                            </span>
+                                        </span>
+                                        <span className="text-gray-400 text-sm font-medium">
+                                            10/10/2024
+                                        </span>
                                     </div>
                                 </div>
-                                <div className="flex flex-col items-end justify-center gap-2">
-                                    <span className="text-gray-900 text-md font-bold">
-                                        4.9{" "}
-                                        <span className="text-gray-400 text-sm font-medium">
-                                            (5)
-                                        </span>
-                                    </span>
-                                    <span className="text-gray-400 text-sm font-medium">
-                                        10/10/2024
+                                <div className="flex flex-row items-center justify-center gap-2">
+                                    <span className="text-gray-900 text-sm font-medium">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua.
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex flex-row items-center justify-center gap-2">
-                                <span className="text-gray-900 text-sm font-medium">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                </span>
-                            </div>
-                        </div>
                         ))}
                     </div>
                 </div>
