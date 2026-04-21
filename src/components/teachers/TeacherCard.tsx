@@ -311,7 +311,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                 >
                     {isPlayingVideo ? (<>
                         <div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden group/video cursor-pointer">
-                            {isYouTubeUrl(teacher.introductionVideoUrl) ? (<iframe src={getVideoUrl(teacher.introductionVideoUrl)} width="100%" height="100%"></iframe>) : (<video src={getVideoUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay muted loop />)}
+                            {isYouTubeUrl(teacher.introductionVideoUrl) ? (<iframe src={getVideoUrl(teacher.introductionVideoUrl)} width="100%" height="100%"></iframe>) : (<video src={getVideoUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay loop controls />)}
 
                             {/* <video src={getImageUrl(teacher.introductionVideoUrl)} className="w-full h-full object-cover" autoPlay muted loop /> */}
                         </div>
