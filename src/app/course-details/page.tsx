@@ -3,7 +3,7 @@ import Link from "next/link";
 import CourseDetailsContent from "@/components/ui/CourseDetailsContent";
 
 export const metadata: Metadata = {
-    title: "Course Details - Humari Product",
+    title: "Course Details - Taleemiyat",
     description: "Course details and curriculum",
 };
 

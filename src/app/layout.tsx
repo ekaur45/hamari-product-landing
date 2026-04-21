@@ -7,7 +7,7 @@ import Sidebar from "@/components/layout/Sidebar";
 
 export const metadata: Metadata = {
     title: "Taleemiyat",
-    description: "Hamari Product Landing Page",
+    description: "Taleemiyat is a platform for learning and teaching",
     icons: {
         icon: "/assets/img/favicon/favicon.ico",
         apple: "/assets/img/favicon/apple-touch-icon.png",

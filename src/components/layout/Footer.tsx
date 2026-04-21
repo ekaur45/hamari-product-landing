@@ -93,7 +93,7 @@ export default function Footer() {
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4">
                             <div className="copyright-text">
-                                <p>Copyright © 2025 All Rights Reserved by Hamari Product</p>
+                                <p>Copyright © 2025 All Rights Reserved by Taleemiyat</p>
                             </div>
                         </div>
                     </div>

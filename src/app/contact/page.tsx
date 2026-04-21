@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Contact Us - Humari Product",
+    title: "Contact Us - Taleemiyat",
     description: "Get in touch with us",
 };
 

@@ -40,7 +40,7 @@ const getBlog = async (slug: string) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_CMS_API_URL}/blogs?filters[slug][$eq]=${slug}&populate[coverImage]=true&populate[author][populate]=avatar&populate[seo]=true&populate[categories]=true&populate[tags]=true`, {
         method: "GET",
         headers: {
-            "Authorization": `Bearer 56bd6f0afea5af111c4f9e0d7a728f355d2e5322aa45337dec7e836d6001efe007a08929faa2d2c0d63b2e47ad924ce0647eea65d56305c6b05a192f77cae5ef9035f3cfface2b7bcf4c61dfe7727903a86cfdeced08757ab91c85b030f14bf4329afebba1c1309415bb6eb64f01b634ddb0128b1fb5fb64bc28565f1be9e7c7`,
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_CMS_API_TOKEN}`,
         },
     })
     if (response.ok) {

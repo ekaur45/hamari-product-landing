@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Blog Grid - Humari Product",
+    title: "Blog Grid - Taleemiyat",
     description: "Read our latest news and articles",
 };
 const getBlogs = async (): Promise<{data: any[], meta: any}> => {
    const response = await fetch(`${process.env.NEXT_PUBLIC_CMS_API_URL}/blogs?fields[0]=title&fields[1]=slug&fields[2]=excerpt&fields[3]=publishedAt&populate[coverImage][fields][0]=url&populate[author][populate][avatar][fields][0]=url&populate[categories][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=10`, {
         method: "GET",
         headers: {
-            "Authorization": `Bearer 56bd6f0afea5af111c4f9e0d7a728f355d2e5322aa45337dec7e836d6001efe007a08929faa2d2c0d63b2e47ad924ce0647eea65d56305c6b05a192f77cae5ef9035f3cfface2b7bcf4c61dfe7727903a86cfdeced08757ab91c85b030f14bf4329afebba1c1309415bb6eb64f01b634ddb0128b1fb5fb64bc28565f1be9e7c7`,
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_CMS_API_TOKEN}`,
         },
     })
     if(response.ok) {

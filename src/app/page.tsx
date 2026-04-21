@@ -224,10 +224,10 @@ export default async function Home() {
                                 <div className="section-area-3 mb-35 small-section-area-3">
                                     <span className="section-subtitle">Know About Us</span>
                                     <h2 className="section-title mb-25">
-                                        Humari Product — The Future of Tutoring, Built Around You
+                                        Taleemiyat — The Future of Tutoring, Built Around You
                                     </h2>
                                     <p className="section-text">
-                                        Every student is different. Humari Product delivers 100%
+                                        Every student is different. Taleemiyat delivers 100%
                                         personalised tutoring—1-on-1 sessions, AI-assisted practice,
                                         and transparent progress—so growth is visible and measurable.
                                     </p>
@@ -300,7 +300,7 @@ export default async function Home() {
                             <div className="h6_research-wrap mb-50">
                                 <div className="h6_research-content">
                                     <p>
-                                        At Humari Product, our 1-to-1 tutoring is tailored to each
+                                        At Taleemiyat, our 1-to-1 tutoring is tailored to each
                                         student&apos;s goals and pace. With the full attention of a
                                         dedicated tutor—plus real-time AI support—students build
                                         confidence, master concepts faster, and make measurable
