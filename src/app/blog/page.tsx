@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Blog Grid - Taleemiyat",
-    description: "Read our latest news and articles",
+    title: "Blogs - {process.env.NEXT_APP_NAME}",
+    description: "Read our latest news and articles - {process.env.NEXT_APP_NAME}",
 };
 const getBlogs = async (): Promise<{data: any[], meta: any}> => {
    const response = await fetch(`${process.env.NEXT_PUBLIC_CMS_API_URL}/blogs?fields[0]=title&fields[1]=slug&fields[2]=excerpt&fields[3]=publishedAt&populate[coverImage][fields][0]=url&populate[author][populate][avatar][fields][0]=url&populate[categories][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=10`, {

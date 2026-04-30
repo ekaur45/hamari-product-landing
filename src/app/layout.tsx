@@ -6,8 +6,8 @@ import Footer from "@/components/layout/Footer";
 import Sidebar from "@/components/layout/Sidebar";
 
 export const metadata: Metadata = {
-    title: "Taleemiyat",
-    description: "Taleemiyat is a platform for learning and teaching",
+    title: `${process.env.NEXT_APP_NAME}`,
+    description: `${process.env.NEXT_APP_NAME} is a platform for learning and teaching`,
     icons: {
         icon: "/assets/img/favicon/favicon.ico",
         apple: "/assets/img/favicon/apple-touch-icon.png",

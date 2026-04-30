@@ -120,6 +120,11 @@ export default function Header({
                                     >
                                         <ul>
                                             <li>
+                                                <Link href="/">
+                                                    Home
+                                                </Link>
+                                            </li>
+                                            <li>
                                                 <Link href="/teachers">
                                                     Teachers
                                                 </Link>

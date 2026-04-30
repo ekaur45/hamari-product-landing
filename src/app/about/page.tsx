@@ -5,9 +5,9 @@ import type { PaginatedApiResponse } from "@/services/api.service";
 import type { Teacher } from "@/types/teacher.types";
 
 export const metadata: Metadata = {
-    title: "About Us - Taleemiyat",
+    title: "About Us - {process.env.NEXT_APP_NAME}",
     description:
-        "Learn about Taleemiyat and our mission to provide personalized tutoring",
+        "Learn about {process.env.NEXT_APP_NAME} and our mission to provide personalized tutoring",
 };
 
 type BlogListItem = {
@@ -83,7 +83,7 @@ export default async function AboutPage() {
                             <div className="h3_about-img mb-50">
                                 <div className="h3_about-inner-img w_img mr-50">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src="/assets/img/landing-02.webp" alt="Taleemiyat tutoring experience" />
+                                    <img src="/assets/img/landing-02.webp" alt={`${process.env.NEXT_APP_NAME} tutoring experience`} />
                                 </div>
                             </div>
                         </div>
@@ -92,10 +92,10 @@ export default async function AboutPage() {
                                 <div className="section-area-3 mb-35">
                                     <span className="section-subtitle">Know About Us</span>
                                     <h2 className="section-title mb-25">
-                                        Taleemiyat — The Future of Tutoring, Built Around You
+                                        {process.env.NEXT_APP_NAME} — The Future of Tutoring, Built Around You
                                     </h2>
                                     <p className="section-text">
-                                        Every student is different. Taleemiyat delivers 100%
+                                        Every student is different. {process.env.NEXT_APP_NAME} delivers 100%
                                         personalised tutoring—1-on-1 sessions, AI-assisted practice,
                                         and transparent progress—so growth is visible and measurable.
                                     </p>

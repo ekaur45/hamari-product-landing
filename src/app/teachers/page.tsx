@@ -6,7 +6,7 @@ import { ApiResponse } from "@/services/api.service";
 import TeacherList from "@/components/teachers/TeacherList";
 
 export const metadata: Metadata = {
-    title: "Find English Tutors - Taleemiyat",
+    title: `Find English Tutors - ${process.env.NEXT_APP_NAME}`,
     description: "Compare the best online English tutors for your goals.",
 };
 

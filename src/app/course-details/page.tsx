@@ -3,7 +3,7 @@ import Link from "next/link";
 import CourseDetailsContent from "@/components/ui/CourseDetailsContent";
 
 export const metadata: Metadata = {
-    title: "Course Details - Taleemiyat",
+    title: `Course Details - ${process.env.NEXT_APP_NAME}`,
     description: "Course details and curriculum",
 };
 

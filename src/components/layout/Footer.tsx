@@ -52,13 +52,13 @@ export default function Footer() {
                                             <Link href="/blog">Blogs</Link>
                                         </li>
                                         <li>
-                                            <a href="#">Contact</a>
+                                            <a href="/contact">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="#">Conditions</a>
+                                            <a href="/terms">Conditions</a>
                                         </li>
                                         <li>
-                                            <a href="#">Privacy Policy</a>
+                                            <a href="/privacy">Privacy Policy</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -93,7 +93,7 @@ export default function Footer() {
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4">
                             <div className="copyright-text">
-                                <p>Copyright © 2025 All Rights Reserved by Taleemiyat</p>
+                                <p>Copyright © 2025 All Rights Reserved by {process.env.NEXT_APP_NAME}</p>
                             </div>
                         </div>
                     </div>

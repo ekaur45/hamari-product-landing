@@ -3,18 +3,18 @@ import Link from "next/link";
 import ContactForm from "@/components/ui/ContactForm";
 
 export const metadata: Metadata = {
-    title: "Contact Us - Taleemiyat",
-    description: "Get in touch with us",
+    title: `Contact Us - ${process.env.NEXT_APP_NAME}`,
+    description: `Get in touch with us - ${process.env.NEXT_APP_NAME}`,
 };
 
 export default function ContactPage() {
     const contact = {
         addressLabel: "Address",
-        addressText: "Taleemiyat — Online Learning",
+        addressText: `${process.env.NEXT_APP_NAME} — Online Learning`,
         phoneLabel: "Phone",
         phone: "+123 548 6458 50",
         emailLabel: "Email",
-        email: "support@taleemiyat.com",
+        email: `support@${process.env.NEXT_APP_NAME}.com`,
         socials: {
             twitter: "https://twitter.com/",
             facebook: "https://facebook.com/",

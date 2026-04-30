@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const slug = routeParams.slug;
     const blog = await getBlog(slug);
     return {
-        title: "Taleemiyat - " + blog.title,
+        title: `${process.env.NEXT_APP_NAME} - ${blog.title}`,
         description: blog.excerpt,
         keywords: blog.seo?.keywords,
         openGraph: {
@@ -69,7 +69,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
         },
         publisher:{
             "@type": "Organization",
-            name: "Taleemiyat",
+            name: `${process.env.NEXT_APP_NAME}`,
             logo: {
                 "@type": "ImageObject",
                 url: process.env.NEXT_PUBLIC_CMS_ASSETS_URL + "/logo.png",
@@ -102,7 +102,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
             },
             publisher: {
                 "@type": "Organization",
-                name: "Taleemiyat",
+                name: `${process.env.NEXT_APP_NAME}`,
             },
             datePublished: blog.publishedAt,
             dateModified: blog.publishedAt,

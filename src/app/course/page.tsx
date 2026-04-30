@@ -3,7 +3,7 @@ import Link from "next/link";
 import CourseCardTwo from "@/components/ui/CourseCardTwo";
 
 export const metadata: Metadata = {
-    title: "Course Archive - Taleemiyat",
+    title: `Course Archive - ${process.env.NEXT_APP_NAME}`,
     description: "Explore our courses",
 };
 

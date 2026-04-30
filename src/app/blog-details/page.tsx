@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Blog Details - Taleemiyat",
+    title: "Blog Details - {process.env.NEXT_APP_NAME}",
     description: "Read blog details",
 };
 

@@ -96,7 +96,7 @@ export default function TeacherList({ teachersData, subjectsData }: { teachersDa
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-wrap items-center -mx-4">
                         <div className="w-full xl:w-7/12 px-4">
-                            <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-4 block">Work at Taleemiyat</span>
+                            <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-4 block">Work at {process.env.NEXT_APP_NAME}</span>
                             <h2 className="text-5xl font-black text-white mb-6 font-outfit leading-tight">
                                 Become an online <br /><span className="text-blue-500 italic">English tutor</span> today
                             </h2>

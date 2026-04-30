@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Pricing - Taleemiyat",
+    title: `Pricing - ${process.env.NEXT_APP_NAME}`,
     description: "Choose your plan",
 };
 
