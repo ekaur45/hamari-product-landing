@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TeacherService from "@/services/teacher.service";
+import type { PaginatedApiResponse } from "@/services/api.service";
+import type { Teacher } from "@/types/teacher.types";
 
 export const metadata: Metadata = {
     title: "About Us - Taleemiyat",
@@ -7,7 +10,46 @@ export const metadata: Metadata = {
         "Learn about Taleemiyat and our mission to provide personalized tutoring",
 };
 
-export default function AboutPage() {
+type BlogListItem = {
+    id: number | string;
+    title?: string;
+    slug?: string;
+    excerpt?: string;
+    publishedAt?: string;
+    coverImage?: { url?: string } | null;
+    author?: { name?: string } | null;
+    categories?: Array<{ name?: string }> | null;
+};
+
+const teacherService: TeacherService = new TeacherService();
+
+const getLatestBlogs = async (): Promise<{ data: BlogListItem[]; meta: unknown }> => {
+    const response = await fetch(
+        `${process.env.NEXT_PUBLIC_CMS_API_URL}/blogs?fields[0]=title&fields[1]=slug&fields[2]=excerpt&fields[3]=publishedAt&populate[coverImage][fields][0]=url&populate[author][populate][avatar][fields][0]=url&populate[categories][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=3`,
+        {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_CMS_API_TOKEN}`,
+            },
+        }
+    );
+
+    if (response.ok) {
+        return await response.json();
+    }
+
+    return { data: [], meta: {} };
+};
+
+export default async function AboutPage() {
+    const [teachersRes, blogsRes] = await Promise.all([
+        teacherService.getFeaturedTeachers(),
+        getLatestBlogs(),
+    ]);
+
+    const teachers = (teachersRes as PaginatedApiResponse<Teacher>).data || [];
+    const blogs = blogsRes.data || [];
+
     return (
         <>
             {/* Breadcrumb */}
@@ -40,7 +82,8 @@ export default function AboutPage() {
                         <div className="w-full lg:w-1/2 xl:w-1/2 px-4">
                             <div className="h3_about-img mb-50">
                                 <div className="h3_about-inner-img w_img mr-50">
-                                    <img src="/assets/img/landing-02.webp" alt="" />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src="/assets/img/landing-02.webp" alt="Taleemiyat tutoring experience" />
                                 </div>
                             </div>
                         </div>
@@ -100,42 +143,101 @@ export default function AboutPage() {
                         <div className="w-full md:w-full lg:w-2/3 xl:w-1/2 px-4 mb-30">
                             <div
                                 className="h2_teacher-section bg-default"
-                                style={{ backgroundImage: "url(/assets/img/teacher/2/bg.jpg)" }}
+                                style={{
+                                    backgroundImage:
+                                        "url(https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80)",
+                                }}
                             >
                                 <div className="section-area-2">
-                                    <h2 className="section-title mb-30">
-                                        Our Most <br /> Experience
+                                    <h2 className="section-title mb-20">
+                                        Become an
                                         <span>
-                                            Professor{" "}
+                                            Instructor{" "}
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img src="/assets/img/banner/2/line.png" alt="" />
                                         </span>
                                     </h2>
+                                    <p className="section-text mb-25">
+                                        Teach what you know, grow your audience, and help students reach their goals—on
+                                        a platform built for modern tutoring.
+                                    </p>
+                                    <div className="h3_about-content mb-25">
+                                        <div className="flex flex-wrap -mx-4">
+                                            <div className="w-full sm:w-1/2 px-4">
+                                                <span>
+                                                    <i className="fa-regular fa-check"></i>Create your profile
+                                                </span>
+                                            </div>
+                                            <div className="w-full sm:w-1/2 px-4">
+                                                <span>
+                                                    <i className="fa-regular fa-check"></i>Set your availability
+                                                </span>
+                                            </div>
+                                            <div className="w-full sm:w-1/2 px-4">
+                                                <span>
+                                                    <i className="fa-regular fa-check"></i>Teach 1-on-1 sessions
+                                                </span>
+                                            </div>
+                                            <div className="w-full sm:w-1/2 px-4">
+                                                <span>
+                                                    <i className="fa-regular fa-check"></i>Track learner progress
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="h2_teacher-button">
                                     <Link
-                                        href="#"
+                                        href="/teachers"
                                         className="theme-btn theme-btn-medium teacher-btn"
                                     >
-                                        Become An Instructor
+                                        Become an Instructor
+                                    </Link>
+                                    <Link
+                                        href="/teachers"
+                                        className="theme-btn theme-btn-medium teacher-btn ml-10"
+                                    >
+                                        Browse Teachers
                                     </Link>
                                 </div>
                             </div>
                         </div>
-                        {[1, 2, 3, 4, 5, 6].map((item) => (
-                            <div key={item} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
-                                <div className="h2_teacher-item mb-30">
-                                    <div className="h2_teacher-img">
-                                        <img src={`/assets/img/teacher/2/${item}.jpg`} alt="" />
-                                    </div>
-                                    <div className="h2_teacher-content">
-                                        <h5 className="h2_teacher-content-title">
-                                            <Link href="#">Parsley Montana</Link>
-                                        </h5>
-                                        <span>Lead Teacher</span>
+                        {teachers?.length ? (
+                            teachers.slice(0, 6).map((teacher: Teacher) => (
+                                <div key={teacher.id} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
+                                    <div className="h2_teacher-item mb-30">
+                                        <div className="h2_teacher-img">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                                src={
+                                                    teacher.introductionVideoThumbnailUrl
+                                                        ? process.env.NEXT_PUBLIC_ASSET_URL + teacher.introductionVideoThumbnailUrl
+                                                        : "/assets/img/teacher/2/1.jpg"
+                                                }
+                                                alt={`${teacher.user?.firstName || ""} ${teacher.user?.lastName || ""}`.trim() || "Teacher"}
+                                            />
+                                        </div>
+                                        <div className="h2_teacher-content">
+                                            <h5 className="h2_teacher-content-title">
+                                                <Link href={`/teachers/${teacher.id}`}>
+                                                    {teacher.user?.firstName} {teacher.user?.lastName}
+                                                </Link>
+                                            </h5>
+                                            <span>{teacher.tagline || "Teacher"}</span>
+                                        </div>
                                     </div>
                                 </div>
+                            ))
+                        ) : (
+                            <div className="w-full px-4">
+                                <div className="py-10 text-center">
+                                    <p>No teachers found right now.</p>
+                                    <Link href="/teachers" className="theme-btn theme-btn-medium teacher-btn mt-4 inline-block">
+                                        Browse Teachers
+                                    </Link>
+                                </div>
                             </div>
-                        ))}
+                        )}
                     </div>
                 </div>
             </section>
@@ -149,7 +251,9 @@ export default function AboutPage() {
                                 <h2 className="section-title mb-30">
                                     Our Latest
                                     <span>
-                                        Articles <img src="/assets/img/banner/2/line.png" alt="" />
+                                        Articles{" "}
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src="/assets/img/banner/2/line.png" alt="" />
                                     </span>
                                 </h2>
                                 <p className="section-text">
@@ -161,36 +265,54 @@ export default function AboutPage() {
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-4">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
+                        {blogs.length ? (
+                        blogs.map((blog) => (
+                            <div key={blog.id} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                                 <div className="h2_blog-item mb-30">
                                     <div className="h2_blog-img">
-                                        <Link href="/blog-details">
-                                            <img src={`/assets/img/blog/2/blog-${item}.jpg`} alt="" />
+                                        <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                                src={
+                                                    blog.coverImage?.url
+                                                        ? process.env.NEXT_PUBLIC_CMS_ASSETS_URL + blog.coverImage.url
+                                                        : "/assets/img/blog/2/blog-1.jpg"
+                                                }
+                                                alt={blog.title || "Blog cover"}
+                                            />
                                         </Link>
                                     </div>
                                     <div className="h2_blog-content">
                                         <div className="h2_blog-content-meta">
                                             <span>
-                                                <i className="fa-thin fa-user"></i>Admin
+                                                <i className="fa-thin fa-user"></i>
+                                                {blog.author?.name || "Admin"}
                                             </span>
                                             <span>
-                                                <i className="fa-thin fa-clock"></i>June 23, 2023
+                                                <i className="fa-thin fa-clock"></i>
+                                                {blog.publishedAt || ""}
                                             </span>
                                         </div>
                                         <h5 className="h2_blog-content-title">
-                                            <Link href="/blog-details">
-                                                Education Week News and Views on Education Policy and
-                                                Practice.
-                                            </Link>
+                                            <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>{blog.title}</Link>
                                         </h5>
-                                        <Link href="#" className="theme-btn blog-btn t-theme-btn">
+                                        <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"} className="theme-btn blog-btn t-theme-btn">
                                             Read More
                                         </Link>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        ))
+                        ) : (
+                            <div className="w-full px-4">
+                                <div className="py-10 text-center">
+                                    <p>No articles found right now.</p>
+                                    <Link href="/blog" className="theme-btn blog-btn t-theme-btn mt-4 inline-block">
+                                        View All Articles
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

@@ -1,36 +1,37 @@
 import Link from "next/link";
 
-const blogs = [
-    {
-        id: 1,
-        title: "The Complete Guide to Build RESTful API Application",
-        date: "April 16, 2023",
-        author: "Hilary Ouse",
-        category: "Education",
-        img: "/assets/img/blog/3/1.jpg",
-        desc: "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
-    },
-    {
-        id: 2,
-        title: "Four Ways to Keep Your Workout Routine Fresh.",
-        date: "March 24, 2023",
-        author: "Elon Gated",
-        category: "Education",
-        img: "/assets/img/blog/3/2.jpg",
-        desc: "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
-    },
-    {
-        id: 3,
-        title: "Only One Thing Impossible For God Find Sense in Any.",
-        date: "July 28, 2023",
-        author: "Brian Cumin",
-        category: "UX Design",
-        img: "/assets/img/blog/3/3.jpg",
-        desc: "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
-    },
-];
+type BlogListItem = {
+    id: number | string;
+    title?: string;
+    slug?: string;
+    excerpt?: string;
+    publishedAt?: string;
+    coverImage?: { url?: string } | null;
+    author?: { name?: string } | null;
+    categories?: Array<{ name?: string }> | null;
+};
 
-export default function BlogSection() {
+const getLatestBlogs = async (): Promise<{ data: BlogListItem[]; meta: any }> => {
+    const response = await fetch(
+        `${process.env.NEXT_PUBLIC_CMS_API_URL}/blogs?fields[0]=title&fields[1]=slug&fields[2]=excerpt&fields[3]=publishedAt&populate[coverImage][fields][0]=url&populate[author][populate][avatar][fields][0]=url&populate[categories][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=3`,
+        {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_CMS_API_TOKEN}`,
+            },
+        }
+    );
+
+    if (response.ok) {
+        return await response.json();
+    }
+
+    return { data: [], meta: {} };
+};
+
+export default async function BlogSection() {
+    const blogs = await getLatestBlogs();
+
     return (
         <section className="h3_blog-area pt-135 pb-110">
             <div className="container mx-auto px-4">
@@ -53,33 +54,41 @@ export default function BlogSection() {
                     </div>
                 </div>
                 <div className="flex flex-wrap -mx-4">
-                    {blogs.map((blog) => (
+                    {blogs.data.map((blog) => (
                         <div key={blog.id} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
                             <div className="h3_blog-item mb-30">
                                 <div className="h3_blog-img">
-                                    <Link href="/blog">
-                                        <img src={blog.img} alt={blog.title} />
+                                    <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src={
+                                                blog.coverImage?.url
+                                                    ? process.env.NEXT_PUBLIC_CMS_ASSETS_URL + blog.coverImage.url
+                                                    : "/assets/img/blog/3/1.jpg"
+                                            }
+                                            alt={blog.title || "Blog cover"}
+                                        />
                                     </Link>
                                     <Link href="#" className="h3_blog-img-meta">
-                                        {blog.category}
+                                        {blog.categories?.[0]?.name || "News"}
                                     </Link>
                                 </div>
                                 <div className="h3_blog-content">
                                     <div className="h3_blog-content-meta">
                                         <span>
                                             <i className="fa-thin fa-clock"></i>
-                                            {blog.date}
+                                            {blog.publishedAt}
                                         </span>
                                         <span>
                                             <i className="fa-thin fa-user"></i>
-                                            {blog.author}
+                                            {blog.author?.name}
                                         </span>
                                     </div>
                                     <h5 className="h3_blog-content-title">
-                                        <Link href="/blog">{blog.title}</Link>
+                                        <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>{blog.title}</Link>
                                     </h5>
-                                    <p>{blog.desc}</p>
-                                    <Link href="/blog" className="h3_blog-btn">
+                                    <p>{blog.excerpt || ""}</p>
+                                    <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"} className="h3_blog-btn">
                                         Read More<i className="fa-light fa-arrow-right"></i>
                                     </Link>
                                 </div>
