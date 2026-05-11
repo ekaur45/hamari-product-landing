@@ -3,6 +3,7 @@ import Link from "next/link";
 import TeacherService from "@/services/teacher.service";
 import type { PaginatedApiResponse } from "@/services/api.service";
 import type { Teacher } from "@/types/teacher.types";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "About Us - {process.env.NEXT_APP_NAME}",
@@ -53,17 +54,18 @@ export default async function AboutPage() {
     return (
         <>
             {/* Breadcrumb */}
-            <section className="breadcrumb-area pt-175 pb-120">
-                <div className="container mx-auto px-4">
+            <section className="breadcrumb-area pt-175 pb-120 bg-default relative">
+                <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4">
-                            <div className="breadcrumb-content text-center">
-                                <h2 className="breadcrumb-title">About Us</h2>
+                            <div className="breadcrumb-content text-center text-white">
+                                <h2 className="breadcrumb-title" style={{ color: "#fff" }}>About Us</h2>
                                 <nav aria-label="breadcrumb">
-                                    <ol className="breadcrumb flex justify-center">
-                                        <li className="breadcrumb-item">
+                                    <ol className="breadcrumb flex justify-center gap-2">
+                                        <li className="breadcrumb-item text-white font-bold text-lg underline">
                                             <Link href="/">Home</Link>
                                         </li>
+                                        /
                                         <li className="breadcrumb-item active" aria-current="page">
                                             About
                                         </li>
@@ -73,6 +75,13 @@ export default async function AboutPage() {
                         </div>
                     </div>
                 </div>
+                <Image
+                    src="/assets/img/breadcrumb/breadcrumb.jpg"
+                    alt="About Us Breadcrumb"
+                    width={1920}
+                    height={1080}
+                    className="absolute top-0 left-0 w-full h-full object-cover filter brightness-50"
+                />
             </section>
 
             {/* About Section */}
@@ -142,68 +151,65 @@ export default async function AboutPage() {
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full md:w-full lg:w-2/3 xl:w-1/2 px-4 mb-30">
                             <div
-                                className="h2_teacher-section bg-default"
-                                style={{
-                                    backgroundImage:
-                                        "url(https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80)",
-                                }}
+                                className="h2_teacher-section bg-default relative"                                
                             >
-                                <div className="section-area-2">
-                                    <h2 className="section-title mb-20">
+                                <Image
+                                    src="/assets/img/bg/become-teacher.jpg"
+                                    alt="Become an Instructor Background"
+                                    width={1920}
+                                    height={1080}
+                                    className="absolute top-0 left-0 w-full h-full object-cover filter brightness-50"
+                                />
+                                <div className="section-area-2 z-10">
+                                    <h2 className="section-title mb-20 text-white">
                                         Become an
-                                        <span>
+                                        <span className="!text-primary ml-2">
                                             Instructor{" "}
                                             {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img src="/assets/img/banner/2/line.png" alt="" />
                                         </span>
                                     </h2>
-                                    <p className="section-text mb-25">
+                                    <p className="section-text mb-25 !text-white">
                                         Teach what you know, grow your audience, and help students reach their goals—on
                                         a platform built for modern tutoring.
                                     </p>
-                                    <div className="h3_about-content mb-25">
+                                    <div className="h3_about-content mb-25 !text-white">
                                         <div className="flex flex-wrap -mx-4">
                                             <div className="w-full sm:w-1/2 px-4">
-                                                <span>
+                                                <span className="!text-white">
                                                     <i className="fa-regular fa-check"></i>Create your profile
                                                 </span>
                                             </div>
                                             <div className="w-full sm:w-1/2 px-4">
-                                                <span>
+                                                <span className="!text-white">
                                                     <i className="fa-regular fa-check"></i>Set your availability
                                                 </span>
                                             </div>
                                             <div className="w-full sm:w-1/2 px-4">
-                                                <span>
+                                                <span className="!text-white">
                                                     <i className="fa-regular fa-check"></i>Teach 1-on-1 sessions
                                                 </span>
                                             </div>
                                             <div className="w-full sm:w-1/2 px-4">
-                                                <span>
+                                                <span className="!text-white">
                                                     <i className="fa-regular fa-check"></i>Track learner progress
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="h2_teacher-button">
+                                <div className="h2_teacher-button z-10">
                                     <Link
                                         href="/teachers"
                                         className="theme-btn theme-btn-medium teacher-btn"
                                     >
                                         Become an Instructor
                                     </Link>
-                                    <Link
-                                        href="/teachers"
-                                        className="theme-btn theme-btn-medium teacher-btn ml-10"
-                                    >
-                                        Browse Teachers
-                                    </Link>
                                 </div>
                             </div>
                         </div>
                         {teachers?.length ? (
-                            teachers.slice(0, 6).map((teacher: Teacher) => (
+                            teachers.slice(0, 7).map((teacher: Teacher) => (
                                 <div key={teacher.id} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4">
                                     <div className="h2_teacher-item mb-30">
                                         <div className="h2_teacher-img">
@@ -250,8 +256,8 @@ export default async function AboutPage() {
                             <div className="section-area-2 mb-50 text-center h2_blog-section-area">
                                 <h2 className="section-title mb-30">
                                     Our Latest
-                                    <span>
-                                        Articles{" "}
+                                    <span className="!text-primary ml-2">
+                                        Articles
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src="/assets/img/banner/2/line.png" alt="" />
                                     </span>
@@ -266,43 +272,46 @@ export default async function AboutPage() {
                     </div>
                     <div className="flex flex-wrap -mx-4">
                         {blogs.length ? (
-                        blogs.map((blog) => (
-                            <div key={blog.id} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
-                                <div className="h2_blog-item mb-30">
-                                    <div className="h2_blog-img">
-                                        <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={
-                                                    blog.coverImage?.url
-                                                        ? process.env.NEXT_PUBLIC_CMS_ASSETS_URL + blog.coverImage.url
-                                                        : "/assets/img/blog/2/blog-1.jpg"
-                                                }
-                                                alt={blog.title || "Blog cover"}
-                                            />
-                                        </Link>
-                                    </div>
-                                    <div className="h2_blog-content">
-                                        <div className="h2_blog-content-meta">
-                                            <span>
-                                                <i className="fa-thin fa-user"></i>
-                                                {blog.author?.name || "Admin"}
-                                            </span>
-                                            <span>
-                                                <i className="fa-thin fa-clock"></i>
-                                                {blog.publishedAt || ""}
-                                            </span>
+                            blogs.map((blog) => (
+                                <div key={blog.id} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
+                                    <div className="h2_blog-item mb-30">
+                                        <div className="h2_blog-img">
+                                            <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img
+                                                    src={
+                                                        blog.coverImage?.url
+                                                            ? process.env.NEXT_PUBLIC_CMS_ASSETS_URL + blog.coverImage.url
+                                                            : "/assets/img/blog/2/blog-1.jpg"
+                                                    }
+                                                    alt={blog.title || "Blog cover"}
+                                                    width={370}
+                                                    height={240}
+                                                    className="w-full h-full object-cover rounded-t-lg"
+                                                />
+                                            </Link>
                                         </div>
-                                        <h5 className="h2_blog-content-title">
-                                            <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>{blog.title}</Link>
-                                        </h5>
-                                        <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"} className="theme-btn blog-btn t-theme-btn">
-                                            Read More
-                                        </Link>
+                                        <div className="h2_blog-content">
+                                            <div className="h2_blog-content-meta">
+                                                <span>
+                                                    <i className="fa-thin fa-user"></i>
+                                                    {blog.author?.name || "Admin"}
+                                                </span>
+                                                <span>
+                                                    <i className="fa-thin fa-clock"></i>
+                                                    {blog.publishedAt || ""}
+                                                </span>
+                                            </div>
+                                            <h5 className="h2_blog-content-title">
+                                                <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"}>{blog.title}</Link>
+                                            </h5>
+                                            <Link href={blog.slug ? `/blog/${blog.slug}` : "/blog"} className="theme-btn blog-btn t-theme-btn">
+                                                Read More
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))
+                            ))
                         ) : (
                             <div className="w-full px-4">
                                 <div className="py-10 text-center">

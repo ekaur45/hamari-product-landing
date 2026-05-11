@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/ui/ContactForm";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: `Contact Us - ${process.env.NEXT_APP_NAME}`,
@@ -24,17 +25,18 @@ export default function ContactPage() {
 
     return (
         <>
-            <section className="breadcrumb-area pt-175 pb-120">
-                <div className="container mx-auto px-4">
+            <section className="breadcrumb-area pt-175 pb-120 bg-default relative">
+                <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4">
-                            <div className="breadcrumb-content text-center">
-                                <h2 className="breadcrumb-title">Contact Us</h2>
+                            <div className="breadcrumb-content text-center text-white">
+                                <h2 className="breadcrumb-title" style={{ color: "#fff" }}>Contact Us</h2>
                                 <nav aria-label="breadcrumb">
-                                    <ol className="breadcrumb flex justify-center">
-                                        <li className="breadcrumb-item">
+                                    <ol className="breadcrumb flex justify-center gap-2">
+                                        <li className="breadcrumb-item text-white font-bold text-lg underline">
                                             <Link href="/">Home</Link>
                                         </li>
+                                        /
                                         <li className="breadcrumb-item active" aria-current="page">
                                             Contact
                                         </li>
@@ -44,6 +46,13 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
+                <Image
+                    src="/assets/img/breadcrumb/breadcrumb.jpg"
+                    alt="Contact Us Breadcrumb"
+                    width={1920}
+                    height={1080}
+                    className="absolute top-0 left-0 w-full h-full object-cover filter brightness-50"
+                />
             </section>
 
             <section className="contact-area pt-120 pb-120">
