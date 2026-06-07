@@ -1,0 +1,54 @@
+{
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "Sue Shei",
+            "role": "Special Education",
+            "content": "Duis euismod ipsum vel ultrices gravida. Vestibulum ac nulla condimentum, euismod massa ut, maximus orci. Aliquam nulla neque, ornare quis ligula et, scelerisque laoreet ex. Aliquam vulputate velit nisl, a eleifend libero mattis id. Vivamus nec ligula ullamcorper, porta sapien id, ullamcorper ligula. Mauris sed condimentum nisl.",
+            "img": "/assets/img/testimonial/3/1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Hanson Deck",
+            "role": "Special Education",
+            "content": "Duis euismod ipsum vel ultrices gravida. Vestibulum ac nulla condimentum, euismod massa ut, maximus orci. Aliquam nulla neque, ornare quis ligula et, scelerisque laoreet ex. Aliquam vulputate velit nisl, a eleifend libero mattis id. Vivamus nec ligula ullamcorper, porta sapien id, ullamcorper ligula. Mauris sed condimentum nisl.",
+            "img": "/assets/img/testimonial/3/2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Sue Shei",
+            "role": "Special Education",
+            "content": "Duis euismod ipsum vel ultrices gravida. Vestibulum ac nulla condimentum, euismod massa ut, maximus orci. Aliquam nulla neque, ornare quis ligula et, scelerisque laoreet ex. Aliquam vulputate velit nisl, a eleifend libero mattis id. Vivamus nec ligula ullamcorper, porta sapien id, ullamcorper ligula. Mauris sed condimentum nisl.",
+            "img": "/assets/img/testimonial/3/1.jpg"
+        }
+    ],
+    "blogs": [
+        {
+            "id": 1,
+            "title": "The Complete Guide to Build RESTful API Application",
+            "date": "April 16, 2023",
+            "author": "Hilary Ouse",
+            "category": "Education",
+            "img": "/assets/img/blog/3/1.jpg",
+            "desc": "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
+        },
+        {
+            "id": 2,
+            "title": "Four Ways to Keep Your Workout Routine Fresh.",
+            "date": "March 24, 2023",
+            "author": "Elon Gated",
+            "category": "Education",
+            "img": "/assets/img/blog/3/2.jpg",
+            "desc": "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
+        },
+        {
+            "id": 3,
+            "title": "Only One Thing Impossible For God Find Sense in Any.",
+            "date": "July 28, 2023",
+            "author": "Brian Cumin",
+            "category": "UX Design",
+            "img": "/assets/img/blog/3/3.jpg",
+            "desc": "Proin venenatis tincidunt ligula, in cursus neque volutpat et. Nam ut nibh porta.",
+        }
+    ]
+}

@@ -6,6 +6,10 @@ export interface User {
     phone: string;
     details: UserDetails;
     role: string;
+    educations?:UserEducation[]
+}
+export interface UserEducation{
+    degreeName:string
 }
 export interface UserDetails {
     id: string,
