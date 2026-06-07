@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import './globals.css';
 import Script from "next/script";
 import { Metadata } from "next";
+import ScrollDetect from "@/components/layout/Scroll";
 export const metadata: Metadata = {
     title: `${process.env.NEXT_APP_NAME}`,
     description: `${process.env.NEXT_APP_NAME} is a platform for learning and teaching`,
@@ -15,12 +16,13 @@ export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
-}>) {
+}>) {    
     return (
         <html lang="en" >
             <body id="artifacts-component-root-html">
                 {/* <canvas id="bg-canvas"></canvas>
                 <div className="cursor-glow" id="cursor-glow"></div> */}
+                <ScrollDetect/>
                 <Header />
                 <div className="page active">
                 {children}

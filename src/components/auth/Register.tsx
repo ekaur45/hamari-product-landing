@@ -1,7 +1,7 @@
 "use client"
 
 
-import { ArrowRight, Eye, EyeClosed, EyeOff } from "lucide-react";
+import { ArrowRight, Eye, EyeClosed, EyeOff, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react"
 import { FaGoogle, FaApple } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, RegisterFormData } from './schemas/register.schema';
 import UiSelectGroup from "../ui/UiSelectGroup";
+import UiConfirmationModal from "../ui/UiConfirmationModal";
 
 
 export default function Register() {
@@ -26,15 +27,30 @@ export default function Register() {
         formState: { errors, isSubmitting },
     } = useForm<RegisterFormData>({
         resolver: zodResolver(registerSchema),
-        defaultValues:{
-            role:"student"
+        defaultValues: {
+            role: "student"
         }
     });
-
+    const [open, setOpen] = useState(false);
     const onSubmit = async (data: RegisterFormData) => {
-        console.log(data);
+        await new Promise(res => {
+            setTimeout(() => {
+                res("")
+            }, 3000);
+        })
     };
     return (<>
+        <UiConfirmationModal
+            open={open}
+            title="Delete Account"
+            message="This action cannot be undone. Are you sure you want to continue?"
+            destructive
+            onCancel={() => setOpen(false)}
+            onConfirm={() => {
+                console.log("confirmed");
+                setOpen(false);
+            }}
+        />
         <div className="auth-wrap">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="auth-box">
@@ -109,7 +125,7 @@ export default function Register() {
                         <input className="fi pr-10" type={showPassword ? "text" : "password"} placeholder="Create Password (8+ chars)"
                             {...register('password')}
                         />
-                        <button type="button" className="absolute top-0 bottom-0 right-3 z-100 text-[var(--teal-l)]" onClick={() => setShowPassword(!showPassword)}
+                        <button type="button" className="absolute top-0 bottom-0 right-3 z-1 text-[var(--teal-l)]" onClick={() => setShowPassword(!showPassword)}
                             tabIndex={-1}
                         >
                             {showPassword ? <EyeOff /> : <Eye />}
@@ -122,7 +138,7 @@ export default function Register() {
                         <input className="fi pr-10" type={showRepeatPassword ? "text" : "password"} placeholder="Confirm Password"
                             {...register('repeatPassword')}
                         />
-                        <button type="button" className="absolute top-0 bottom-0 right-3 z-100 text-[var(--teal-l)]" onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+                        <button type="button" className="absolute top-0 bottom-0 right-3 z-1 text-[var(--teal-l)]" onClick={() => setShowRepeatPassword(!showRepeatPassword)}
                             tabIndex={-1}
                         >
                             {showRepeatPassword ? <EyeOff /> : <Eye />}
@@ -152,8 +168,9 @@ export default function Register() {
                             {errors.acceptTerms?.message}
                         </p>
                     </div>
-                    <button type="submit" className="btn btn-glow w-full justify-center">Create Free Account
-                        <ArrowRight />
+                    <button type="submit" disabled={isSubmitting} className="btn btn-glow w-full justify-center">Create Free Account
+                        {isSubmitting ? <Loader2 className="animate-spin" /> : <ArrowRight />}
+
                     </button>
                     <div className="auth-switch">Already have an account?
                         <Link href={'/login'} className="ml-2">Log in</Link>
