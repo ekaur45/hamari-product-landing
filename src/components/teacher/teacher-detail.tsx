@@ -5,7 +5,8 @@ import { assetUrl } from "@/old/utils/misc.util";
 import { useState } from "react";
 
 export default function TeacherDetails({ teacher }: { teacher: Teacher }) {
-    const [activeTab, setActiveTab] = useState<('about'|'reviews'|'schedule')>('about');
+    const [activeTab, setActiveTab] = useState<('about' | 'reviews' | 'schedule')>('about');
+    console.warn(teacher);
     return (<>
         <div className="td-hero">
             <div className="td-av bg-gradient-to-br from-[rgb(91,33,182)] to-[rgb(124,58,237)] overflow-hidden" id="td-av">
@@ -54,9 +55,9 @@ export default function TeacherDetails({ teacher }: { teacher: Teacher }) {
             </div>
         </div>
         <div className="tab-row">
-            <div className={`tab ${activeTab == 'about' ? 'act' : ''}`} onClick={()=>{setActiveTab('about')}}>About</div>
-            <div className={`tab ${activeTab == 'reviews' ? 'act' : ''}`} onClick={()=>{setActiveTab('reviews')}}>Reviews</div>
-            <div className={`tab ${activeTab == 'schedule' ? 'act' : ''}`} onClick={()=>{setActiveTab('schedule')}}>Schedule</div>
+            <div className={`tab ${activeTab == 'about' ? 'act' : ''}`} onClick={() => { setActiveTab('about') }}>About</div>
+            <div className={`tab ${activeTab == 'reviews' ? 'act' : ''}`} onClick={() => { setActiveTab('reviews') }}>Reviews</div>
+            <div className={`tab ${activeTab == 'schedule' ? 'act' : ''}`} onClick={() => { setActiveTab('schedule') }}>Schedule</div>
         </div>
         <div className="td-grid">
             {activeTab == 'about' && <div className="block">

@@ -18,8 +18,8 @@ export default function TeacherListCard({ teacher }: { teacher?: Teacher }) {
                     <div className="tc-subject">{teacher.teacherSubjects.map(d => d.subject.name).join(" . ")}</div>
                     <div className="tc-tags">
                         {teacher.user.educations?.map(e => <span key={teacher.id + e.id} className="tag">{e.degreeName}</span>)}</div>
-                    <div className="stars text-center mb-1">
-                        {Array.from([1,2,3,4,5]).map(s=><Star key={s}/>)}
+                    <div className="stars text-center mb-1 flex gap-1">
+                        {Array.from([1,2,3,4,5]).map(s=><Star key={s} size={16} fill="#f59e0b"/>)}
 
                     </div>
                     <div className="text-center text-[0.72rem] text-[var(--text-s)] mb-3.5">{10} reviews</div>
