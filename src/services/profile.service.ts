@@ -1,4 +1,4 @@
-import { User } from "@/old/types/user.types";
+import { User } from "@/types/user.types";
 import { ApiService } from "./api.service";
 
 import { ApiResponse } from "./api.service";

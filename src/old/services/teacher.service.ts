@@ -1,4 +1,4 @@
-import { Teacher } from "@/old/types/teacher.types";
+import { Teacher } from "@/types/teacher.types";
 import { ApiResponse, ApiService } from "./api.service";
 
 export default class TeacherService {

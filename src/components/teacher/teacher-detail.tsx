@@ -3,6 +3,7 @@ import { Teacher } from "@/types/teacher.types";
 import UiDatePicker from "../ui/UiDatePicker";
 import { assetUrl } from "@/old/utils/misc.util";
 import { useState } from "react";
+import TeacherCalendar from "../calendar/TeacherCalendar";
 
 export default function TeacherDetails({ teacher }: { teacher: Teacher }) {
     const [activeTab, setActiveTab] = useState<('about' | 'reviews' | 'schedule')>('about');
@@ -150,23 +151,13 @@ export default function TeacherDetails({ teacher }: { teacher: Teacher }) {
             </div>}
             {activeTab === 'schedule' && <div id="schedule-tab">
                 <p className="text-[var(--text-m)] text-[0.88rem] mb-5">Sarah{"'"}s typical weekly availability. Book from the panel on the right.</p>
-                <div className="grid grid-cols-7 gap-1.5 text-center">
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Mon</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Tue</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Wed</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Thu</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Fri</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Sat</div>
-                    <div className="text-[0.72rem] text-[var(--text-s)] p-1.5">Sun</div>
-                    {[
-                        '4PM-8PM',
-                        '4PM-8PM',
-                        'Free',
-                        '4PM-8PM',
-                        '4PM-6PM',
-                        '9AM-5PM',
-                        '10AM-2PM'].map(t => <div key={t} className="bg-[rgba(13,148,136,0.12)] border border-[rgba(45,212,191,0.2)] rounded-lg py-2 px-1 text-[0.72rem] text-[var(--teal-l)]">{t}</div>)}
-                </div>
+                <TeacherCalendar
+                teacher={teacher}
+                availability={teacher.availabilities}
+                bookings={teacher.teacherBookings}
+                subjects={teacher.teacherSubjects}
+                />
+                
             </div>}
             <div className="bg-[var(--glass)] border border-[var(--border)] rounded-2xl p-5">
                 <h4 className="font-bold text-[0.9rem] mb-3.5">Similar Teachers</h4>

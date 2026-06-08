@@ -1,10 +1,20 @@
 "use client"
+import { User } from "@/types/user.types";
 import { ArrowRight, GraduationCap, HomeIcon, Info, LogIn, Menu, Phone, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { BiHome } from "react-icons/bi";
-
-export default function Header() {
+import LoggedInUser from "./LoggedInUser";
+interface HeaderProps {
+    isLoggedIn: boolean,
+    decodedToken: User | null;
+}
+export default function Header(
+    {
+        isLoggedIn,
+        decodedToken
+    }: HeaderProps
+) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleMobileMenu = () => {
         if (!isOpen) {
@@ -51,14 +61,14 @@ export default function Header() {
                     </div>
 
                     {/* CTA always visible */}
-                    <div className="hidden sm:flex nav-cta">
+                    {isLoggedIn && decodedToken ? <div className="hidden sm:flex"><LoggedInUser user={decodedToken} /></div> : <div className="hidden sm:flex nav-cta">
                         <Link href="/login" className="btn btn-ghost">
                             Log In
                         </Link>
                         <Link href="/register" className="btn btn-glow">
                             Get Started Free
                         </Link>
-                    </div>
+                    </div>}
                     <button className="sm:hidden flex"
                         onClick={toggleMobileMenu}>
                         <Menu />
@@ -97,14 +107,14 @@ export default function Header() {
                     </div>
                     <hr className="my-3 bg-[var(--teal-d)] border-[var(--teal)]" />
                     <div className="flex flex-col gap-4">
-                        <div className="flex flex-col gap-3">
+                        {isLoggedIn && decodedToken ? <div className=""><LoggedInUser user={decodedToken} /></div> : <div className="flex flex-col gap-3">
                             <Link href="/login" className="btn btn-ghost justify-between flex gap-3 text-lg align-center">
                                 Log In <LogIn />
                             </Link>
                             <Link href="/register" className="btn btn-glow justify-between">
                                 Get Started Free <ArrowRight />
                             </Link>
-                        </div>
+                        </div>}
                         <ul className="flex flex-col gap-3">
                             <Link href="/teachers" className="flex gap-3 align-center">
                                 <li className="bg-[var(--teal-l)]/40 w-full px-3 py-2 rounded-xl flex gap-3 text-lg align-center">

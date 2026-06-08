@@ -1,4 +1,4 @@
-import { CreatePaymentIntentData, CreatePaymentIntentResponse } from "@/old/types/payment.types";
+import { CreatePaymentIntentData, CreatePaymentIntentResponse } from "@/types/payment.types";
 import { ApiResponse, ApiService } from "./api.service";
 
 export default class PaymentService {
