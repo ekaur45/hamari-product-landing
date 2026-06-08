@@ -1,3 +1,7 @@
+import { portalUrl } from "@/utils/misc.util";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
 export default function HomeHero() {
     return (<section className="hero p-0">
         <div className="hero-grid">
@@ -6,19 +10,20 @@ export default function HomeHero() {
                 <h1>Learn From The World{"'"}s <span className="grad-text">Best Teachers</span> — Anytime</h1>
                 <p className="hero-sub">Book live 1:1 or group classes, get instant AI homework help, and track your progress — one
                     powerful platform for students, parents, and educators.</p>
-                <div className="hero-btns"> <a href="#signup" className="btn btn-glow btn-xl">Start Learning Free →</a> <a
-                    href="#teachers" className="btn btn-ghost btn-lg">Browse Teachers</a> </div>
+                <div className="hero-btns"> 
+                    <Link href={portalUrl('/auth/register/Student')} className="btn btn-glow btn-xl">Start Learning Free <ArrowRight/></Link> 
+                <Link href="/teachers" className="btn btn-ghost btn-lg">Browse Teachers</Link> </div>
                 <div className="hero-stats">
                     <div>
-                        <div className="stat-val" >5200</div>
+                        <div className="stat-val" >5,200</div>
                         <div className="stat-lbl">Verified Teachers</div>
                     </div>
                     <div>
-                        <div className="stat-val">98</div>
+                        <div className="stat-val">98+</div>
                         <div className="stat-lbl">% Satisfaction</div>
                     </div>
                     <div>
-                        <div className="stat-val">40</div>
+                        <div className="stat-val">40+</div>
                         <div className="stat-lbl">Subjects Covered</div>
                     </div>
                 </div>

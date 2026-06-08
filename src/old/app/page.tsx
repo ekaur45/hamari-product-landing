@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CourseCard from "@/old/components/ui/CourseCard";
+
 import Counter from "@/old/components/ui/Counter";
 import TeacherSwiper from "@/old/components/ui/TeacherSwiper";
 import TestimonialSwiper from "@/old/components/ui/TestimonialSwiper";

@@ -1,4 +1,4 @@
-import { ICurrency } from "@/old/types/currency";
+import { ICurrency } from "@/types/currency";
 import { ApiService } from "./api.service";
 
 export default class CurrencyService {

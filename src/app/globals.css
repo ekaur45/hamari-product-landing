@@ -209,12 +209,7 @@ nav.solid {
   min-height: 100vh;
 }
 .page {
-  display: none;
-  padding-top: 76px;
   animation: fadeIn 0.35s ease;
-}
-.page.active {
-  display: block;
 }
 @keyframes fadeIn {
   from {

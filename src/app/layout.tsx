@@ -42,7 +42,7 @@ export default async function RootLayout({
                 isLoggedIn={isLoggedIn}
                 decodedToken={decodedToken}
                 />
-                <div className="page active">
+                <div className="page">
                 {children}
                 </div>
                 <Footer />

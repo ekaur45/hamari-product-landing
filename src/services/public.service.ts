@@ -1,8 +1,8 @@
-import { User } from "@/old/types/user.types";
+import { User } from "@/types/user.types";
 import { ApiService } from "./api.service";
 
 import { ApiResponse } from "./api.service";
-import { Subject } from "@/old/types/teacher.types";
+import { Subject } from "@/types/teacher.types";
 
 export default class PublicService {
     private readonly apiService: ApiService;

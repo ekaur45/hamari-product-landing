@@ -1,4 +1,4 @@
-import { getCookie } from '@/old/utils/misc.util';
+import { getCookie } from '@/utils/misc.util';
 import axios, {
     AxiosInstance,
     AxiosRequestConfig,

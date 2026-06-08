@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { BiHome } from "react-icons/bi";
 import LoggedInUser from "./LoggedInUser";
+import Image from "next/image";
 interface HeaderProps {
     isLoggedIn: boolean,
     decodedToken: User | null;
@@ -42,15 +43,7 @@ export default function Header(
                 <div className="mx-auto max-w-screen-xl flex justify-between py-4">
 
                     <Link href="/#" className="logo">
-                        <div className="logo-mark">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 3L2 8l10 5 10-5-10-5zM2 16l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-
-                        <span className="logo-text">
-                            Edu <span>Connect</span>
-                        </span>
+                        <Image src={"/assets/img/edura-dark@3x.png"} width={"200"} height={"100"} alt="logo"/>
                     </Link>
 
                     {/* NAV LINKS (desktop only) */}
