@@ -7,7 +7,7 @@ type ModalProps = {
   open: boolean;
   title?: string;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm?: () => void;
   children: React.ReactNode;
   showFooter?:boolean
 };

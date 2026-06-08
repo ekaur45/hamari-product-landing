@@ -33,7 +33,7 @@ export default function CheckoutForm({
     const [couponDiscount, setCouponDiscount] = useState<number>(0);
     const [isApplying, setIsApplying] = useState<boolean>(false);
     const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState<boolean>(false);
-    const [isSigninModalVisible, setIsSigninModalVisible] = useState<boolean>(true);
+    const [isSigninModalVisible, setIsSigninModalVisible] = useState<boolean>(false);
 
 
     const selectedSubject = teacher.teacherSubjects.find(
@@ -168,7 +168,13 @@ export default function CheckoutForm({
                     </form>
                 )}
                 <div className="order-total"><span>Total Due</span><span>£{(teacher.hourlyRate) + (teacher.hourlyRate * 0.10)}</span></div>
-                <div className="btn btn-glow w-full justify-center mt-2">Pay £{(teacher.hourlyRate) + (teacher.hourlyRate * 0.10)} <ArrowRight /></div>
+                <button className="btn btn-glow w-full justify-center mt-2" disabled={isCreatingPaymentIntent} onClick={handleProceedToPayment}>
+                    {isCreatingPaymentIntent?<span className="flex justify-center items-center gap-2">
+                        <Loader className="animate-spin"/>Redirecting to payment ... 
+                    </span>: <span className="flex justify-center items-center gap-2">
+                        Pay £{(teacher.hourlyRate) + (teacher.hourlyRate * 0.10)} <ArrowRight />
+                    </span>}
+                    </button>
                 {/* <div className="trust-row">
             <div className="trust-item">🔒 <span>256-bit SSL</span></div>
             <div className="trust-item">💳 <span>Secure payment</span></div>

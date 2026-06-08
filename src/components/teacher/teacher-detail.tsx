@@ -1,7 +1,7 @@
 "use client";
 import { Teacher } from "@/types/teacher.types";
 import UiDatePicker from "../ui/UiDatePicker";
-import { assetUrl } from "@/old/utils/misc.util";
+import { assetUrl } from "@/utils/misc.util";
 import { useState } from "react";
 import TeacherCalendar from "../calendar/TeacherCalendar";
 
@@ -152,12 +152,12 @@ export default function TeacherDetails({ teacher }: { teacher: Teacher }) {
             {activeTab === 'schedule' && <div id="schedule-tab">
                 <p className="text-[var(--text-m)] text-[0.88rem] mb-5">Sarah{"'"}s typical weekly availability. Book from the panel on the right.</p>
                 <TeacherCalendar
-                teacher={teacher}
-                availability={teacher.availabilities}
-                bookings={teacher.teacherBookings}
-                subjects={teacher.teacherSubjects}
+                    teacher={teacher}
+                    availability={teacher.availabilities}
+                    bookings={teacher.teacherBookings}
+                    subjects={teacher.teacherSubjects}
                 />
-                
+
             </div>}
             <div className="bg-[var(--glass)] border border-[var(--border)] rounded-2xl p-5">
                 <h4 className="font-bold text-[0.9rem] mb-3.5">Similar Teachers</h4>

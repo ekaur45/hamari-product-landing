@@ -1,4 +1,4 @@
-import { assetUrl } from "@/old/utils/misc.util";
+import { assetUrl } from "@/utils/misc.util";
 import { User } from "@/types/user.types";
 
 export default function ProfileImage({user}:{user:User}){

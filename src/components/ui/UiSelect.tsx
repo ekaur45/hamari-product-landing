@@ -17,6 +17,7 @@ export interface SelectOption {
 interface UiSelectProps {
     options: SelectOption[];
     value?: string;
+    className?:string;
     placeholder?: string;
     searchable?: boolean;
     loading?: boolean;
@@ -27,6 +28,7 @@ interface UiSelectProps {
 export default function UiSelect({
     options,
     value,
+    className,
     placeholder = 'Select option',
     searchable = true,
     loading = false,
@@ -135,7 +137,7 @@ export default function UiSelect({
                 type="button"
                 disabled={disabled}
                 onClick={() => setOpen(v => !v)}
-                className="
+                className={`
                     flex w-full items-center justify-between
                     rounded-xl
                     border border-[var(--glass)]
@@ -146,7 +148,8 @@ export default function UiSelect({
                     transition-all
                     hover:border-[var(--teal-d)]
                     focus:border-[var(--teal-l)]
-                "
+                    ${className}
+                `}
             >
                 <span
                     className={

@@ -55,12 +55,12 @@ export default function TeacherCalendar({ availability, bookings, subjects, teac
         <UiModal
             open={openSubjectModal}
             title="Select Slot"
-            onClose={() => setSelectedSlot(null)}
-            onConfirm={handleBookingSelection}
+            onClose={() => setSelectedSlot(null)}            
         >
             <>
                 <UiSelect
                     value={selectedSubject}
+                    className="mb-3"
                     onChange={(e) => setSelectedSubject(e)}
                     options={subjects.map(s => {
                         return {
@@ -68,6 +68,9 @@ export default function TeacherCalendar({ availability, bookings, subjects, teac
                             value: s.subject.id
                         }
                     })} />
+                    <button className="btn btn-glow w-full" onClick={handleBookingSelection}>
+                        Proceed
+                    </button>
             </>
         </UiModal>
         <UiSelectGroup

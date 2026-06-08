@@ -63,6 +63,3 @@ export function getCookie(name: string) {
     if (parts.length === 2) return parts.pop()?.split(';').shift() ?? "USD";
     return "USD";
 }
-export function assetUrl(url:string):string{
-    return `${process.env.NEXT_PUBLIC_ASSET_URL}${url}`
-}

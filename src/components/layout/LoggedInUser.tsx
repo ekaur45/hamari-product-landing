@@ -4,6 +4,8 @@ import ProfileImage from "../profile/ProfileImage";
 import { Home, LogOut, User as UserIcon } from "lucide-react";
 import AuthService from "@/services/auth.service";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { portalUrl } from "@/utils/misc.util";
 // import { useRouter } from "next/router";
 const authService = new AuthService();
 export default function LoggedInUser({ user }: { user: User }) {
@@ -52,14 +54,18 @@ export default function LoggedInUser({ user }: { user: User }) {
             {open?<ul className="absolute right-0 min-w-[200px] bg-[var(--glass)] backdrop-blur-lg p-1 rounded-md border border-[var(--glass-b)] z-100"
             ref={ulRef}
             >
+                <Link href={portalUrl(`/${user.role.toLocaleLowerCase()}/dashboard`)}>
                 <li className="p-3 hover:bg-[var(--glass)] rounded flex gap-3">
                     <Home />
                     Dashboard
                 </li>
+                </Link>
+                <Link href={portalUrl(`/profile`)}>
                 <li className="p-3 hover:bg-[var(--glass)] rounded flex gap-3">
                     <UserIcon />
                     Profile
                 </li>
+                </Link>
                 <li>
                     <hr className="bg-[var(--glass-b)] border-[var(--glass-b)] my-1" />
                 </li>

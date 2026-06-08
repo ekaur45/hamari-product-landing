@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { assetUrl } from "@/old/utils/misc.util";
+import { assetUrl } from "@/utils/misc.util";
 import { Teacher } from "@/types/teacher.types";
 
 interface CheckoutDetailsProps {
