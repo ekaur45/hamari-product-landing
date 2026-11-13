@@ -1,4 +1,4 @@
-import { ICurrency } from "@/old/types/currency";
+import { ICurrency } from "@/types/currency";
 
 export const getImageUrl = (path: string) => {
     if (!path) return '/images/placeholder.png';
@@ -8,21 +8,21 @@ export const getImageUrl = (path: string) => {
 }
 export const isYouTubeUrl = (url: string) => {
     return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//.test(url);
-};
+  };
 export const getYouTubeEmbedUrl = (url: string) => {
     if (!url) return '';
-
+  
     // Extract the video ID from any YouTube URL
     const match = url.match(
-        /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
     );
-
+  
     if (!match) return '';
-
+  
     const videoId = match[1];
     return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-};
-export const getVideoUrl = (path: string) => {
+  };
+  export const getVideoUrl = (path: string) => {
     if (!path) return '/images/placeholder.png';
 
     if (path.startsWith('http')) {
@@ -39,7 +39,7 @@ export const exchangeRate = (amount: number): string => {
     try {
         currencies = JSON.parse(localStorage.getItem("currencies") ?? "[]");
     } catch {
-        return amount.toString();
+        return  amount.toString();
     }
 
     const selectedCurrency = getCookie("currency") ?? "USD";
@@ -52,7 +52,7 @@ export const exchangeRate = (amount: number): string => {
     }
 
     // Correct formula: convert from base → target
-    return (amount * to.exchangeRate).toFixed(3);
+    return (amount * to.exchangeRate).toFixed(3) ;
 };
 
 
@@ -62,12 +62,4 @@ export function getCookie(name: string) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop()?.split(';').shift() ?? "USD";
     return "USD";
-}
-
-export function assetUrl(url: string): string {
-    return `${process.env.NEXT_PUBLIC_ASSET_URL}${url}`
-}
-
-export function portalUrl(url:string){
-    return `${process.env.NEXT_PUBLIC_PORTAL_LINK}${url}`
 }

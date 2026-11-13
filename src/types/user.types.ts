@@ -9,9 +9,7 @@ export interface User {
     educations?:UserEducation[]
 }
 export interface UserEducation{
-    id:string;
     degreeName:string
-    instituteName:string
 }
 export interface UserDetails {
     id: string,
