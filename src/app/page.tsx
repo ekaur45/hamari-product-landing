@@ -10,47 +10,6 @@ import TeacherService from "@/services/teacher.service";
 const teacherService: TeacherService = new TeacherService()
 export default async function Home() {
     const teachers = await teacherService.getFeaturedTeachers();
-    const courses = [
-        {
-            img: "/assets/img/course/1/1.jpg",
-            category: "Development",
-            title: "The Complete 2023 Web Development Bootcamp",
-            rating: 4.5,
-            reviews: 120,
-            price: "$120.00",
-            oldPrice: "$150.00",
-            authorImg: "/assets/img/course/3/author-1.jpg",
-            authorName: "David Millar",
-            lessons: 12,
-            duration: "12h 30m",
-        },
-        {
-            img: "/assets/img/course/1/2.jpg",
-            category: "Design",
-            title: "User Experience Design Essentials - Adobe XD UI UX Design",
-            rating: 4.8,
-            reviews: 90,
-            price: "$90.00",
-            oldPrice: "$110.00",
-            authorImg: "/assets/img/course/3/author-1.jpg",
-            authorName: "Jenny Wilson",
-            lessons: 10,
-            duration: "10h 15m",
-        },
-        {
-            img: "/assets/img/course/1/3.jpg",
-            category: "Marketing",
-            title: "Digital Marketing Masterclass - 23 Courses in 1",
-            rating: 4.7,
-            reviews: 150,
-            price: "$100.00",
-            oldPrice: "$130.00",
-            authorImg: "/assets/img/course/3/author-1.jpg",
-            authorName: "Robert Fox",
-            lessons: 15,
-            duration: "15h 45m",
-        },
-    ];
 
     return (
         <>
