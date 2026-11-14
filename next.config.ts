@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  experimental: {
+    // GoDaddy shared hosting's filesystem doesn't support the file lock Next takes on `.next/lock`,
+    // which makes every build fail with "Another next build process is already running".
+    lockDistDir: false,
+  },
   images: {
    remotePatterns: [
       {
