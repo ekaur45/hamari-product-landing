@@ -55,6 +55,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
     if (!blog) {
         return <div>Blog not found</div>;
     }
+    const plainText: string = (blog.content ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
     const jsonLd:BlogPosting = {
         "@context": "http://schema.org",
         "@type":"BlogPosting",
@@ -76,11 +77,11 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
             },
         },
         datePublished: blog.publishedAt,
-        dateModified: blog.publishedAt,
+        dateModified: blog.updatedAt ?? blog.publishedAt,
         mainEntityOfPage: `http://localhost:3000/blog/${blog.slug}`,
-        articleBody: blog.content,
+        articleBody: plainText,
         keywords: blog.seo?.keywords,
-        category: blog.categories?.join(", "),
+        category: blog.categories?.map((category: { name: string }) => category.name).join(", "),
         commentCount: 0,
         interactionStatistic:{
             "@type": "InteractionCounter",
@@ -92,7 +93,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
         },
         url: `http://localhost:3000/blog/${blog.slug}`,
         inLanguage: "en-US",
-        wordCount: blog.content.length,
+        wordCount: plainText.split(/\s+/).filter(Boolean).length,
         mainEntity: {
             "@type": "Article",
             headline: blog.title,
@@ -105,7 +106,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
                 name: `${process.env.NEXT_APP_NAME}`,
             },
             datePublished: blog.publishedAt,
-            dateModified: blog.publishedAt,
+            dateModified: blog.updatedAt ?? blog.publishedAt,
             url: `http://localhost:3000/blog/${blog.slug}`,
         },
     }
@@ -155,7 +156,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
                                 />
                             </div>
                             <div className="blog_details-content">
-                                <RenderBlogContent blocks={blog.content} />
+                                <RenderBlogContent html={blog.content} />
                             </div>
                             <div className="blog_details-related mb-45 mt-45">
                                 <h3 className="blog_details-related-title">Related Blogs</h3>

@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "1337", // 👈 allows all ports (3000, 8000, etc.)
+        port: "8000",
+        pathname: "/storage/**",
       },
       {
         protocol: 'http',

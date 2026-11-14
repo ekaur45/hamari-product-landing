@@ -1,15 +1,12 @@
-export default function RenderBlogContent({ blocks }: { blocks: any[] }) {
-    return blocks.map((block: any, index: number) => {
-      switch (block.type) {
-        case "paragraph":
-          return <p className="text-base text-gray-600 mb-4" key={index}>{block.children.map((c: any) => c.text).join("")}</p>;
-        case "heading":
-          return <h2 className={`text-2xl font-bold mb-4 h${block.level}`} key={index}>{block.children.map((c: any) => c.text).join("")}</h2>;
-        case "list":
-          return <ul className="list-disc list-inside mb-4" key={index}>{block.children.map((item: any, i: number) => <li key={i}>{item.text}</li>)}</ul>;
-        default:
-          return null;
-      }
-    });
-  }
-
+/**
+ * Renders blog content from the Laravel CMS. The CMS sanitizes this HTML
+ * server-side (Filament RichContentRenderer::toHtml) before returning it.
+ */
+export default function RenderBlogContent({ html }: { html: string }) {
+  return (
+    <div
+      className="blog-rich-content text-base text-gray-600 [&_p]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mb-3 [&_ul]:list-disc [&_ul]:list-inside [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-4 [&_a]:underline [&_img]:rounded-lg [&_img]:my-4 [&_blockquote]:border-l-4 [&_blockquote]:pl-4 [&_blockquote]:italic"
+      dangerouslySetInnerHTML={{ __html: html ?? "" }}
+    />
+  );
+}
